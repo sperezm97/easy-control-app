@@ -1,4 +1,4 @@
 module.export = {
-  'pre-commit': 'lint-stage',
-  'pre-push': 'lint-stage && npm test',
+  'pre-commit': 'lint-staged',
+  'pre-push': 'lint-staged && npm test',
 };
