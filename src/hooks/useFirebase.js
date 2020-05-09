@@ -10,6 +10,7 @@ import 'firebase/storage';
 
 const useFirebase = () => {
   const [fb, setFb] = useState(null);
+
   const firebaseConfig = {
     apiKey: env.apiKey,
     authDomain: env.authDomain,
