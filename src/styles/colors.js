@@ -1,17 +1,17 @@
 export default {
-  primaryColor: '#0072FF',
-  primaryColorDark: '#4C47F4',
-  primaryColorLight: '#008AFF',
-  secondaryColor: '#00AA7D',
-  secondaryColorDark: '#00A3B8',
+  primaryColor: '#2196F3',
+  primaryColorDark: '#1976D2',
+  primaryColorLight: '#BBDEFB',
+  secondaryColor: '',
+  secondaryColorDark: '',
   secondaryColorLight: '',
-  accentColor: '',
+  accentColor: '#8BC34A',
 
-  grey: '#cccccc',
+  grey: '#BDBDBD',
   greyLight: '#f5f5f5',
-  greyDark: '#dfdfdf',
+  greyDark: '#757575 ',
 
-  textColor: '#333333',
+  textColor: '#212121',
 
   danger: '#cc0000',
   success: '#ff8800',
