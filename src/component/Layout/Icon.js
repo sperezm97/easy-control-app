@@ -16,7 +16,7 @@ export default {
   Save: () => <MaterialIcons name="save" size={24} color="black" />,
 
   // Account
-  Account: () => <MaterialIcons name="account-balance-wallet" size={24} color="black" />,
+  Account: () => <MaterialIcons name="account-balance-wallet" size={36} color="black" />,
 
   // Bottom Taps Icons
   TransactionList: props => <MaterialIcons {...props} name="view-list" size={36} />,

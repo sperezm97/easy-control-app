@@ -1,0 +1,31 @@
+import React from 'react';
+import { FlatList } from 'react-native';
+import PropTypes from 'prop-types';
+
+const List = props => {
+  const { data, renderItem, header, onEndReached, isRefresh, onRefresh } = props;
+  return (
+    <FlatList
+      keyExtractor={item => String(item.id)}
+      ListHeaderComponent={header}
+      data={data}
+      renderItem={renderItem}
+      onEndReachedThreshold={1}
+      onEndReached={onEndReached}
+      refreshing={isRefresh}
+      onRefresh={onRefresh}
+    />
+  );
+};
+
+List.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  data: PropTypes.array.isRequired,
+  renderItem: PropTypes.func.isRequired,
+  header: PropTypes.element,
+  onEndReached: PropTypes.func,
+  isRefresh: PropTypes.bool,
+  onRefresh: PropTypes.func,
+};
+
+export default List;
