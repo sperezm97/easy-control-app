@@ -4,39 +4,37 @@ import AccountsNavigator from './AccountsNavigator';
 import ProfileNavigator from './ProfileNavigator';
 import ReportsNavigator from './ReportsNavigator';
 import TransactionsNavigator from './TransactionNavigator';
-import { Icon } from '../component/Layout';
+import { Icon } from '../component';
 import { colors, fonts } from '../styles';
+import layout from '../styles/layout';
 
 const Tab = createBottomTabNavigator();
 
 const defaultOption = {
   activeTintColor: colors.primaryColor,
-  activeBackgroundColor: colors.white,
+  activeBackgroundColor: 'transparent',
   inactiveTintColor: colors.grey,
-  inactiveBackgroundColor: colors.white,
+  inactiveBackgroundColor: 'transparent',
   showLabel: true,
   showIcon: true,
   adaptive: true,
   keyboardHidesTabBar: true,
-  labelPosition: 'beside-icon',
+  labelPosition: 'below-icon',
   labelStyle: {
     ...fonts.caption,
   },
   tabStyle: {},
-  style: {},
-};
-
-const defaultTapOptions = {
-  tabBarVisible: true,
+  style: {
+    ...layout.boxShadow,
+    height: 60,
+    // backgroundColor: colors.black,
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
+  },
 };
 
 const RootNavigator = () => (
-  <Tab.Navigator
-    screenOptions={defaultOption}
-    initialRouteName="Transactions"
-    backBehavior="history"
-    tabBarOptions={defaultTapOptions}
-  >
+  <Tab.Navigator initialRouteName="Transactions" backBehavior="history" tabBarOptions={defaultOption}>
     <Tab.Screen
       name="Transactions"
       component={TransactionsNavigator}

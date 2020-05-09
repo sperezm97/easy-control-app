@@ -19,8 +19,8 @@ export default {
   Account: () => <MaterialIcons name="account-balance-wallet" size={24} color="black" />,
 
   // Bottom Taps Icons
-  TransactionList: props => <MaterialIcons {...props} name="list" />,
-  AccountBank: props => <MaterialIcons {...props} name="account-balance" />,
-  Reports: props => <MaterialCommunityIcons {...props} name="file-document" />,
-  Profile: props => <MaterialIcons {...props} name="person" />,
+  TransactionList: props => <MaterialIcons {...props} name="view-list" size={36} />,
+  AccountBank: props => <MaterialIcons {...props} name="account-balance" size={36} />,
+  Reports: props => <MaterialCommunityIcons {...props} name="file-document" size={36} />,
+  Profile: props => <MaterialIcons {...props} name="person" size={36} />,
 };
