@@ -3,7 +3,7 @@ version: 2
 publish: &publish
   working_directory: ~/repo
   docker:
-    - image: circleci/node:10.4.1
+    - image: circleci/node:12.0.0
   steps:
     - checkout
     - restore_cache:
