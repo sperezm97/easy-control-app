@@ -16,10 +16,10 @@ publish: &publish
         name: Save npm package cache
         paths:
           - ~/.cache/npm
-        key: v1-cache-dependencies-{{ checksum ""package-lock.lock" }}-{{ checksum  "package.json" }}-{{ arch }}
+        key: v1-cache-dependencies-{{ checksum "package-lock.lock" }}-{{ checksum  "package.json" }}-{{ arch }}
     - run:
         name: Run tests
-        command: npm run tests
+        command: npm run test
     - run:
         name: Login into Expo
         command: npx expo-cli login -u $EXPO_USERNAME -p $EXPO_PASSWORD
