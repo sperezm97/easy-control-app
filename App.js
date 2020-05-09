@@ -2,9 +2,16 @@
 import React from 'react';
 import { useFonts } from '@use-expo/font';
 import { AppLoading } from 'expo';
-import AppNavigator from './src/navigation';
 import { SafeAreaView } from 'react-native';
+import AppNavigator from './src/navigation';
 import { colors } from './src/styles';
+
+const style = {
+  container: {
+    flex: 1,
+    backgroundColor: colors.white,
+  },
+};
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -24,7 +31,7 @@ export default function App() {
   }
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: colors.white }}>
+    <SafeAreaView style={style.container}>
       <AppNavigator />
     </SafeAreaView>
   );

@@ -1,3 +1,5 @@
+import colors from './colors';
+
 export default {
   largeTitle: {
     fontSize: 34,
@@ -15,7 +17,7 @@ export default {
     fontSize: 22,
     lineHeight: 28,
     fontStyle: 'normal',
-    fontFamily: 'Lora-Regular',
+    fontFamily: 'Lora-Bold',
   },
   headLine: {
     fontSize: 20,
@@ -28,6 +30,18 @@ export default {
     lineHeight: 20,
     fontStyle: 'normal',
     fontFamily: 'Roboto-Regular',
+  },
+  bodyLight: {
+    fontSize: 16,
+    lineHeight: 20,
+    fontStyle: 'normal',
+    fontFamily: 'Roboto-Light',
+  },
+  bodyBold: {
+    fontSize: 16,
+    lineHeight: 20,
+    fontStyle: 'normal',
+    fontFamily: 'Roboto-Bold',
   },
   bodyLarge: {
     fontSize: 17,

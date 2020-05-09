@@ -23,7 +23,9 @@ const defaultOption = {
   labelStyle: {
     ...fonts.caption,
   },
-  tabStyle: {},
+  tabStyle: {
+    paddingTop: layout.spacingSm,
+  },
   style: {
     ...layout.boxShadow,
     height: 60,
