@@ -6,9 +6,10 @@ export default {
   secondaryColorDark: '#00A3B8',
   secondaryColorLight: '',
   accentColor: '',
-  grey: '#f4f4f4',
-  greyLight: '',
-  greyDark: '',
+
+  grey: '#cccccc',
+  greyLight: '#f5f5f5',
+  greyDark: '#dfdfdf',
 
   textColor: '#333333',
 
@@ -18,4 +19,6 @@ export default {
 
   white: '#fff',
   black: '#000',
+
+  backgroundColor: '#f4f4f4',
 };
