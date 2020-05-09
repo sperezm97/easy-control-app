@@ -18,5 +18,9 @@ module.exports = {
   plugins: ['react', 'prettier', 'react-native'],
   rules: {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'import/no-extraneous-dependencies': [
+      'error',
+      { devDependencies: true, optionalDependencies: false, peerDependencies: false },
+    ],
   },
 };
