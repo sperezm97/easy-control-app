@@ -6,7 +6,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "test": "jest --watch --collectCoverage ",
+    "test": "jest . --collectCoverage --passWithNoTests",
     "test:update": "jest -u "
   },
   "dependencies": {
