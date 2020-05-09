@@ -8,7 +8,7 @@ publish: &publish
     - checkout
     - restore_cache:
         name: Restore npm package cache
-        key: v1-cache-dependencies-{{ checksum "package-lock.lock" }}-{{ checksum  "package.json" }}-{{ arch }}
+        key: v1-cache-dependencies-{{ checksum "package-lock.json" }}-{{ checksum  "package.json" }}-{{ arch }}
     - run:
         name: Installing dependencies
         command: npm ci
@@ -16,7 +16,7 @@ publish: &publish
         name: Save npm package cache
         paths:
           - ~/.cache/npm
-        key: v1-cache-dependencies-{{ checksum "package-lock.lock" }}-{{ checksum  "package.json" }}-{{ arch }}
+        key: v1-cache-dependencies-{{ checksum "package-lock.json" }}-{{ checksum  "package.json" }}-{{ arch }}
     - run:
         name: Run tests
         command: npm run test
