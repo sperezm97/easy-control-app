@@ -4,7 +4,7 @@ import AccountsNavigator from './AccountsNavigator';
 import ProfileNavigator from './ProfileNavigator';
 import ReportsNavigator from './ReportsNavigator';
 import TransactionsNavigator from './TransactionNavigator';
-import { Icon } from '../component';
+import { Icon } from '../component/Layout';
 import { colors, fonts } from '../styles';
 
 const Tab = createBottomTabNavigator();

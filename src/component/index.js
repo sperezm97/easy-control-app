@@ -1,3 +1,4 @@
-import Icon from './Icon';
+import Icon from './Layout/Icon';
+import Text from './Layout/Text';
 
-export { Icon };
+export { Icon, Text };
