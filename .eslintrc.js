@@ -24,5 +24,8 @@ module.exports = {
       { devDependencies: true, optionalDependencies: false, peerDependencies: false },
     ],
     'import/no-namespace': 0,
+    'jest/no-deprecated-functions': 0,
+    'react/display-name': 0,
+    'react/jsx-props-no-spreading': 0,
   },
 };
