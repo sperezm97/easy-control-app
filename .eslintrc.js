@@ -27,5 +27,6 @@ module.exports = {
     'jest/no-deprecated-functions': 0,
     'react/display-name': 0,
     'react/jsx-props-no-spreading': 0,
+    'eqeqeq': 0,
   },
 };

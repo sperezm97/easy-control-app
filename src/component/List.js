@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import { FlatList } from 'react-native';
 import PropTypes from 'prop-types';
@@ -14,6 +15,8 @@ const List = props => {
       onEndReached={onEndReached}
       refreshing={isRefresh}
       onRefresh={onRefresh}
+      showsVerticalScrollIndicator={false}
+      scrollEnabled
     />
   );
 };
@@ -22,7 +25,7 @@ List.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
   data: PropTypes.array.isRequired,
   renderItem: PropTypes.func.isRequired,
-  header: PropTypes.element,
+  header: PropTypes.func,
   onEndReached: PropTypes.func,
   isRefresh: PropTypes.bool,
   onRefresh: PropTypes.func,

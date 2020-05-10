@@ -4,7 +4,6 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation, StackActions } from '@react-navigation/native';
 import PropTypes from 'prop-types';
 import Icon from './Icon';
-import { globalStyles, colors, layout } from '../../styles';
 import Text from './Text';
 import View from './View';
 

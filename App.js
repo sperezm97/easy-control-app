@@ -1,11 +1,13 @@
 /* eslint-disable global-require */
 import React from 'react';
+import './src/config/firebase';
 import { useFonts } from '@use-expo/font';
 import { AppLoading } from 'expo';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, StatusBar, YellowBox } from 'react-native';
+import { Provider } from 'react-redux';
 import AppNavigator from './src/navigation';
 import { colors } from './src/styles';
-import './src/config/firebase';
+import store from './src/store';
 
 const style = {
   container: {
@@ -13,6 +15,7 @@ const style = {
     backgroundColor: colors.white,
   },
 };
+YellowBox.ignoreWarnings(['Setting a timer']);
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -33,7 +36,10 @@ export default function App() {
 
   return (
     <SafeAreaView style={style.container}>
-      <AppNavigator />
+      <StatusBar animated />
+      <Provider store={store}>
+        <AppNavigator />
+      </Provider>
     </SafeAreaView>
   );
 }

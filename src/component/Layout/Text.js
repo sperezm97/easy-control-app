@@ -8,7 +8,6 @@ import { fonts, colors } from '../../styles';
 const Text = props => {
   const { type, color, children, weight, style } = props;
   const fontStyle = fonts[type];
-
   return (
     <RNText
       style={[

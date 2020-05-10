@@ -23,7 +23,7 @@ instance.firestore().settings({
   cacheSizeBytes: firebase.firestore.CACHE_SIZE_UNLIMITED,
 });
 
-const db = instance.firestore().enablePersistence();
+const db = instance.firestore();
 
 export { db };
 export default instance;
