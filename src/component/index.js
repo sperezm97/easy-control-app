@@ -3,6 +3,7 @@ import Text from './Layout/Text';
 import Card from './Layout/Card';
 import View from './Layout/View';
 import Header from './Layout/Header';
+import Button from './Layout/Button';
 
 import FloatingButton from './Layout/FloatingButton';
 
@@ -27,4 +28,5 @@ export {
   Header,
   Input,
   Picker,
+  Button,
 };
