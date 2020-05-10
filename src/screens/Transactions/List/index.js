@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
+import { useNavigation, StackActions } from '@react-navigation/native';
 import { ActiveAccount, View, Card, List, FloatingButton } from '../../../component';
 import ListItem from './ListItem';
 import ListHeader from './ListHeader';
@@ -13,6 +14,10 @@ const styles = StyleSheet.create({
 });
 
 const TransactionsList = () => {
+  const navigation = useNavigation();
+
+  const openModal = () => navigation.dispatch(StackActions.push('TransactionsCreate'));
+
   const renderHeader = () => <ListHeader />;
 
   const renderItem = () => {
@@ -41,7 +46,7 @@ const TransactionsList = () => {
         </Card>
       </>
       <View style={styles.containerButton}>
-        <FloatingButton />
+        <FloatingButton onPress={openModal} />
       </View>
     </View>
   );

@@ -24,7 +24,6 @@ const View = props => {
 };
 
 View.propTypes = {
-  children: PropTypes.array.isRequired,
   style: PropTypes.object,
   row: PropTypes.bool,
   center: PropTypes.bool,

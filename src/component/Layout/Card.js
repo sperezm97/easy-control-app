@@ -52,7 +52,6 @@ const Card = props => {
 
 Card.propTypes = {
   type: PropTypes.string.isRequired,
-  children: PropTypes.array.isRequired,
 };
 
 export default Card;

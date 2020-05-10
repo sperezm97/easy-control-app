@@ -19,7 +19,7 @@ export default {
   },
   headLine: {
     fontSize: 20,
-    lineHeight: 27,
+    lineHeight: 24,
     fontStyle: 'normal',
     fontFamily: 'Roboto-Bold',
   },

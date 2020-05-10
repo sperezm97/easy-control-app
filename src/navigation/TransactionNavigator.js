@@ -20,7 +20,7 @@ const defaultOptions = {
 const TransactionsNavigator = () => (
   <TransactionsStack.Navigator
     headerMode="none"
-    mode="card"
+    mode="modal"
     initialRouteName="Transactions"
     screenOptions={defaultOptions}
     keyboardHandlingEnabled
