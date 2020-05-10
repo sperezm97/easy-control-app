@@ -1,16 +1,16 @@
 import React from 'react';
-import {
-  ActiveAccount,
-  IncomeCard,
-  ExpensesCard,
-  View,
-  Card,
-  List,
-  FloatingButton,
-} from '../../../component';
-import styles from './styles';
+import { StyleSheet } from 'react-native';
+import { ActiveAccount, View, Card, List, FloatingButton } from '../../../component';
 import ListItem from './ListItem';
 import ListHeader from './ListHeader';
+
+const styles = StyleSheet.create({
+  containerButton: {
+    position: 'absolute',
+    bottom: 20,
+    right: 25,
+  },
+});
 
 const TransactionsList = () => {
   const renderHeader = () => <ListHeader />;
@@ -20,13 +20,9 @@ const TransactionsList = () => {
   };
 
   return (
-    <View>
+    <View flex>
       <>
         <ActiveAccount />
-        <View row between style={styles.containerCards}>
-          <IncomeCard />
-          <ExpensesCard />
-        </View>
         <Card type="container">
           <List
             data={[

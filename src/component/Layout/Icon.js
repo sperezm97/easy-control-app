@@ -4,20 +4,30 @@ import { colors } from '../../styles';
 
 export default {
   // Navigation Icons
-  Right: () => <MaterialIcons name="keyboard-arrow-right" size={24} color={colors.black} />,
-  Left: () => <MaterialIcons name="keyboard-arrow-left" size={24} color={colors.black} />,
-  Down: () => <MaterialIcons name="keyboard-arrow-down" size={24} color={colors.black} />,
-  Up: () => <MaterialIcons name="keyboard-arrow-up" size={24} color={colors.black} />,
+  Right: props => (
+    <MaterialIcons {...props} name="keyboard-arrow-right" size={24} color={colors.black} />
+  ),
+  Left: props => (
+    <MaterialIcons {...props} name="keyboard-arrow-left" size={24} color={colors.black} />
+  ),
+  Down: props => (
+    <MaterialIcons {...props} name="keyboard-arrow-down" size={24} color={colors.black} />
+  ),
+  Up: props => <MaterialIcons {...props} name="keyboard-arrow-up" size={24} color={colors.black} />,
 
   // Floating BUtton
-  Add: () => <MaterialIcons name="add" size={36} color={colors.white} />,
-  Trash: () => <MaterialCommunityIcons name="trash-can-outline" size={24} color={colors.black} />,
-  Close: () => <MaterialIcons name="close" size={24} color={colors.black} />,
-  Edit: () => <MaterialIcons name="edit" size={24} color={colors.black} />,
-  Save: () => <MaterialIcons name="save" size={24} color={colors.black} />,
+  Add: props => <MaterialIcons {...props} name="add" size={36} color={colors.white} />,
+  Trash: props => (
+    <MaterialCommunityIcons {...props} name="trash-can-outline" size={24} color={colors.black} />
+  ),
+  Close: props => <MaterialIcons {...props} name="close" size={24} color={colors.black} />,
+  Edit: props => <MaterialIcons {...props} name="edit" size={24} color={colors.black} />,
+  Save: props => <MaterialIcons {...props} name="save" size={24} color={colors.black} />,
 
   // Account
-  Account: () => <MaterialIcons name="account-balance-wallet" size={36} color={colors.black} />,
+  Account: props => (
+    <MaterialIcons {...props} name="account-balance-wallet" size={36} color={colors.black} />
+  ),
 
   // Bottom Taps Icons
   TransactionList: props => <MaterialIcons {...props} name="view-list" size={36} />,
