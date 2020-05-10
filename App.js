@@ -5,6 +5,7 @@ import { AppLoading } from 'expo';
 import { SafeAreaView } from 'react-native';
 import AppNavigator from './src/navigation';
 import { colors } from './src/styles';
+import './src/config/firebase';
 
 const style = {
   container: {

@@ -18,8 +18,9 @@
     "@use-expo/font": "^2.0.0",
     "expo": "~37.0.3",
     "expo-sqlite": "~8.1.0",
-    "firebase": "^7.14.3",
+    "firebase": "7.9.0",
     "formik": "^2.1.4",
+    "moment": "^2.25.3",
     "prop-types": "^15.7.2",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
@@ -30,6 +31,7 @@
     "react-native-safe-area-context": "0.7.3",
     "react-native-screens": "~2.2.0",
     "react-native-web": "~0.11.7",
+    "uuid": "^8.0.0",
     "yup": "^0.28.5"
   },
   "devDependencies": {

@@ -36,7 +36,11 @@ const defaultOption = {
 };
 
 const RootNavigator = () => (
-  <Tab.Navigator initialRouteName="Transactions" backBehavior="history" tabBarOptions={defaultOption}>
+  <Tab.Navigator
+    initialRouteName="Transactions"
+    backBehavior="history"
+    tabBarOptions={defaultOption}
+  >
     <Tab.Screen
       name="Transactions"
       component={TransactionsNavigator}
@@ -53,7 +57,7 @@ const RootNavigator = () => (
         tabBarIcon: props => <Icon.AccountBank {...props} />,
       }}
     />
-    <Tab.Screen
+    {/* <Tab.Screen
       name="Reports"
       component={ReportsNavigator}
       options={{
@@ -68,7 +72,7 @@ const RootNavigator = () => (
         tabBarLabel: 'Profile',
         tabBarIcon: props => <Icon.Profile {...props} />,
       }}
-    />
+    /> */}
   </Tab.Navigator>
 );
 
