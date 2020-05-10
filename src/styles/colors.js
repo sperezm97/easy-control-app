@@ -11,7 +11,7 @@ export default {
   greyLight: '#f5f5f5',
   greyDark: '#757575',
 
-  textColor: '#212121',
+  textColor: '#565C71',
 
   danger: '#cc0000',
   success: '#007e33',

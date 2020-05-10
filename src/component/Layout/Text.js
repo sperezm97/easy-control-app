@@ -10,7 +10,14 @@ const Text = props => {
   const fontStyle = fonts[type];
 
   return (
-    <RNText style={[fontStyle, style, { color: color || colors.textColor }, weight && { fontWeight: weight }]}>
+    <RNText
+      style={[
+        fontStyle,
+        style,
+        { color: color || colors.textColor },
+        weight && { fontWeight: weight },
+      ]}
+    >
       {children}
     </RNText>
   );
@@ -20,7 +27,6 @@ Text.propTypes = {
   type: PropTypes.string.isRequired,
   color: PropTypes.string,
   weight: PropTypes.string,
-  children: PropTypes.array,
   style: PropTypes.object,
 };
 
