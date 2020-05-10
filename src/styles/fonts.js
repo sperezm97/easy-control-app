@@ -1,5 +1,3 @@
-import colors from './colors';
-
 export default {
   largeTitle: {
     fontSize: 34,

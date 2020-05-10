@@ -5,7 +5,7 @@ import { layout, globalStyles, colors } from '../../../styles';
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: layout.spacingLg,
+    marginVertical: layout.spacingMd,
   },
   circle: {
     ...globalStyles.center,
@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
   },
   item: {
     marginLeft: layout.spacingNor,
+    justifyContent: 'center',
   },
   price: {
     fontFamily: 'Roboto-Bold',
@@ -38,7 +39,7 @@ const ListItem = () => {
           </Text>
         </View>
       </View>
-      <View>
+      <View style={styles.item}>
         <Text type="caption" color={colors.primaryColor} style={styles.price}>
           $1,1234.00
         </Text>
