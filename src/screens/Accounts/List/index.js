@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
+import { useNavigation, StackActions } from '@react-navigation/native';
 import { View, ActiveAccount, FloatingButton, Card, List } from '../../../component';
 import ListItem from './ListItem';
 
@@ -12,6 +13,9 @@ const styles = StyleSheet.create({
 });
 
 const AccountsList = () => {
+  const navigation = useNavigation();
+
+  const onOpenModal = () => navigation.dispatch(StackActions.push('AccountsCreate'));
   const renderItem = () => {
     return <ListItem />;
   };
@@ -36,7 +40,7 @@ const AccountsList = () => {
         </Card>
       </>
       <View style={styles.containerButton}>
-        <FloatingButton />
+        <FloatingButton onPress={onOpenModal} />
       </View>
     </View>
   );

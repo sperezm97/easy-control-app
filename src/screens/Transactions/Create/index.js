@@ -2,9 +2,8 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { Formik } from 'formik';
 import WithDismissBottomBar from '../../../hooks/WithDismissBottomBar';
-import { Picker, Input, Header, View } from '../../../component';
+import { Picker, Input, Header, View, Button } from '../../../component';
 import { colors, layout } from '../../../styles';
-import Button from '../../../component/Layout/Button';
 
 const styles = StyleSheet.create({
   main: {
