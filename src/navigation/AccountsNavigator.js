@@ -29,6 +29,7 @@ const AccountsNavigator = () => (
           open: config,
           close: config,
         },
+        gestureDirection: 'vertical',
       }}
     />
   </AccountsStack.Navigator>
