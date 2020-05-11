@@ -6,6 +6,7 @@ import { ActiveAccount, View, Card, List, FloatingButton } from '../../../compon
 import ListItem from './ListItem';
 import ListHeader from './ListHeader';
 import { getFormatTransactions } from '../../../store/transactions/selectors';
+import { layout } from '../../../styles';
 
 const styles = StyleSheet.create({
   containerButton: {

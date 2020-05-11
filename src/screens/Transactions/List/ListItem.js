@@ -46,7 +46,7 @@ const ListItem = props => {
           </Text>
         </View>
       </View>
-      <View style={styles.item}>
+      <View>
         <Text type="caption" color={getColorByTransactionType()} style={styles.price}>
           {formatMoneyValue(price)}
         </Text>
