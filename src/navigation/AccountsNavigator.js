@@ -10,6 +10,9 @@ const defaultOptions = {
 
 const config = {
   animation: 'timing',
+  config: {
+    duration: 300,
+  },
 };
 
 const AccountsNavigator = () => (

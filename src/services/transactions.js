@@ -1,3 +1,4 @@
+import firebase from 'firebase';
 import { db } from '../config/firebase';
 
 const ref = db.collection('transactions');
@@ -8,8 +9,10 @@ const transactionConvert = {
     transaction_type_id: trans.transactionTypeId,
     description: trans.description,
     price: +trans.price,
-    createdAt: trans.created_at,
-    updatedAt: trans.updated_at,
+    createdAt: trans.createdAt || firebase.firestore.Timestamp.now(),
+    updatedAt: trans.updatedAt || firebase.firestore.Timestamp.now(),
+    user_id: trans.userId,
+    account_id: trans.accountId,
   }),
   fromFirestore: (snapshot, options) => {
     const data = snapshot.data(options);

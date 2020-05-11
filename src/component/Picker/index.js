@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { layout, fonts, colors } from '../../styles';
 import Text from '../Layout/Text';
 import View from '../Layout/View';
+import Icon from '../Layout/Icon';
 
 const styles = StyleSheet.create({
   container: {
@@ -25,10 +26,25 @@ const styles = StyleSheet.create({
   input: {
     ...fonts.body,
   },
+  iconContainer: {
+    marginRight: layout.spacingMd,
+  },
 });
 
 const Picker = props => {
-  const { onValueChange, items, placeholder, value, Icon, label } = props;
+  const { onValueChange, items, placeholder, value, label } = props;
+
+  const formatOptions = () =>
+    items.map(i => ({
+      label: i.name,
+      value: i.id,
+    }));
+
+  const renderIcon = () => (
+    <View style={styles.iconContainer}>
+      <Icon.Down />
+    </View>
+  );
 
   return (
     <View style={styles.container}>
@@ -38,10 +54,20 @@ const Picker = props => {
       <View style={styles.containerInput}>
         <RnPicker
           onValueChange={onValueChange}
-          items={items}
-          placeholder={placeholder}
+          items={formatOptions()}
+          placeholder={{
+            label: placeholder,
+            value: null,
+            color: colors.grey,
+          }}
           value={value}
-          style={styles.input}
+          Icon={renderIcon}
+          style={{
+            inputAndroid: styles.input,
+            inputIOS: styles.input,
+          }}
+          useNativeAndroidPickerStyle
+          doneText="Done"
         />
       </View>
     </View>
