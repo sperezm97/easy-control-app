@@ -17,6 +17,7 @@ const List = props => {
       onRefresh={onRefresh}
       showsVerticalScrollIndicator={false}
       scrollEnabled
+      bounces
     />
   );
 };

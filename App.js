@@ -36,7 +36,7 @@ export default function App() {
 
   return (
     <SafeAreaView style={style.container}>
-      <StatusBar animated />
+      <StatusBar barStyle="dark-content" />
       <Provider store={store}>
         <AppNavigator />
       </Provider>

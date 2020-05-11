@@ -20,6 +20,7 @@ const TransactionsList = () => {
   const dispatch = useDispatch();
   const transactions = useSelector(getFormatTransactions);
   useEffect(() => {
+    dispatch({ type: 'user/fetch' });
     dispatch({ type: 'options/fetch' });
     dispatch({ type: 'transactions/fetch' });
     return () => {};

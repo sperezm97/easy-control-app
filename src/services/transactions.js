@@ -21,8 +21,13 @@ export default {
   // Using for fetch query's
   ref,
 
-  fetchAll: () =>
-    ref.orderBy('created_at', 'desc').limit(10).withConverter(transactionConvert).get(),
+  fetchAll: userId =>
+    ref
+      .orderBy('created_at', 'desc')
+      .limit(10)
+      .where('user_id', '==', userId)
+      .withConverter(transactionConvert)
+      .get(),
   fetchSingle: id => ref.doc(id).withConverter(transactionConvert).get(),
   create: body => ref.withConverter(transactionConvert).add(body),
   update: (id, body) => ref.doc(id).withConverter(transactionConvert).update(body),
