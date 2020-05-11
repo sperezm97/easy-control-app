@@ -5,11 +5,11 @@ const ref = db.collection('accounts');
 const accountConvert = {
   toFirestore: acc => ({
     name: acc.name,
-    totalAmount: acc.total_amount,
-    accountTypeId: acc.type_account_id,
-    userId: acc.user_id,
-    income: +acc.total_amount_income,
-    expenses: +acc.total_amount_expenses,
+    total_amount: +acc.totalAmount,
+    type_account_id: acc.typeAccountId,
+    user_id: acc.userId,
+    total_amount_income: +acc.totalExpenses || 0,
+    total_amount_expenses: +acc.totalIncome || 0,
   }),
   fromFirestore: (snapshot, options) => {
     const data = snapshot.data(options);

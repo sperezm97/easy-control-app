@@ -1,9 +1,13 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Alert } from 'react-native';
 import { Formik } from 'formik';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigation, StackActions } from '@react-navigation/native';
 import WithDismissBottomBar from '../../../hooks/WithDismissBottomBar';
 import { Picker, Input, Header, View, Button } from '../../../component';
 import { colors, layout } from '../../../styles';
+import { getAccountType } from '../../../store/options/selectors';
 
 const styles = StyleSheet.create({
   main: {
@@ -16,57 +20,65 @@ const styles = StyleSheet.create({
 });
 
 const AccountsCreate = () => {
+  const dispatch = useDispatch();
+  const navigation = useNavigation();
+  const accountype = useSelector(getAccountType);
+
+  const valideEmptyFields = values =>
+    values.name.length && values.typeAccountId.length && values.totalAmount.length;
+
+  const createTransaction = values => {
+    if (valideEmptyFields(values)) {
+      dispatch({ type: 'accounts/create', values });
+      navigation.dispatch(StackActions.pop());
+    } else {
+      Alert.alert('Oops', 'Complete all fields!');
+    }
+  };
+
   return (
     <View style={styles.main}>
       <Header titleName="Add Account" />
       <View style={styles.container}>
-        <Formik
-          initialValues={{
-            name: '',
-            account_id: '',
-            category_id: '',
-            total_amount: '',
-          }}
-          onSubmit={values => console.log(values)}
-        >
-          {({ handleChange, handleSubmit, values }) => (
-            <>
-              <Input
-                label="Name"
-                placeholder="una coca cola"
-                value={values.name}
-                keyboardType="default"
-                onValueChange={handleChange('name')}
-              />
-              <Picker
-                label="Account Type"
-                placeholder="Income"
-                value={values.account_id}
-                onValueChange={handleChange('account_id')}
-                items={[
-                  {
-                    label: 'Ahorro',
-                    value: 1,
-                  },
-                  {
-                    label: 'Corriente',
-                    value: 2,
-                  },
-                ]}
-              />
-              <Input
-                label="Total Amount"
-                placeholder="$50.00"
-                value={values.total_amount}
-                keyboardType="numeric"
-                onValueChange={handleChange('total_amount')}
-              />
-              <View>
-                <Button onPress={handleSubmit}>Save</Button>
-              </View>
-            </>
-          )}
-        </Formik>
+        <KeyboardAwareScrollView>
+          <Formik
+            initialValues={{
+              name: '',
+              typeAccountId: '',
+              totalAmount: '',
+            }}
+            onSubmit={createTransaction}
+          >
+            {({ handleChange, handleSubmit, values }) => (
+              <>
+                <Input
+                  label="Name"
+                  placeholder="Type an account name"
+                  value={values.name}
+                  keyboardType="default"
+                  onValueChange={handleChange('name')}
+                />
+                <Picker
+                  label="Account Type"
+                  placeholder="Select an account type"
+                  value={values.typeAccountId}
+                  onValueChange={handleChange('typeAccountId')}
+                  items={accountype}
+                />
+                <Input
+                  label="Total Amount"
+                  placeholder="Type an initial budget"
+                  value={values.totalAmount}
+                  keyboardType="numeric"
+                  onValueChange={handleChange('totalAmount')}
+                />
+                <View>
+                  <Button onPress={handleSubmit}>Save</Button>
+                </View>
+              </>
+            )}
+          </Formik>
+        </KeyboardAwareScrollView>
       </View>
     </View>
   );

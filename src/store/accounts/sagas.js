@@ -1,7 +1,7 @@
 import { takeLatest, call, put, select } from 'redux-saga/effects';
 import { accountService } from '../../services';
 import { formatDataFromFb } from '../../utils';
-import { getActiveAccountId } from '../user/selectors';
+import { getActiveAccountId, getUserId } from '../user/selectors';
 
 function* fetchAccounts() {
   try {
@@ -22,6 +22,19 @@ function* fetchActiveAccount() {
   }
 }
 
+function* createAccount(payload) {
+  try {
+    const userId = yield select(getUserId);
+    yield call(accountService.create, { ...payload.values, userId });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export function* watchFetchAccounts() {
   yield takeLatest('accounts/fetch', fetchAccounts);
+}
+
+export function* watchCreateAccounts() {
+  yield takeLatest('accounts/create', createAccount);
 }

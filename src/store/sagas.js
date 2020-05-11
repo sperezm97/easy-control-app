@@ -2,7 +2,7 @@ import { all } from 'redux-saga/effects';
 import { watchFetchTransactions, watchCreateTransactions } from './transactions/sagas';
 import watchFetchOptions from './options/sagas';
 import { watchFetchUser } from './user/sagas';
-import { watchFetchAccounts } from './accounts/sagas';
+import { watchFetchAccounts, watchCreateAccounts } from './accounts/sagas';
 
 export default function* sagas() {
   yield all([
@@ -11,5 +11,6 @@ export default function* sagas() {
     watchFetchUser(),
     watchFetchAccounts(),
     watchCreateTransactions(),
+    watchCreateAccounts(),
   ]);
 }

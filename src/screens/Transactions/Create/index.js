@@ -3,11 +3,11 @@ import { StyleSheet, Alert } from 'react-native';
 import { Formik } from 'formik';
 import { useSelector, useDispatch } from 'react-redux';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { useNavigation, StackActions } from '@react-navigation/native';
 import WithDismissBottomBar from '../../../hooks/WithDismissBottomBar';
 import { Picker, Input, Header, View, Button } from '../../../component';
 import { colors, layout } from '../../../styles';
 import { getTransactionType, getCategories } from '../../../store/options/selectors';
-import { useNavigation, StackActions } from '@react-navigation/native';
 
 const styles = StyleSheet.create({
   main: {
