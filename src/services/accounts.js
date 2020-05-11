@@ -4,7 +4,6 @@ const ref = db.collection('accounts');
 
 const accountConvert = {
   toFirestore: acc => ({
-    id: 0,
     name: acc.name,
     totalAmount: acc.total_amount,
     accountTypeId: acc.type_account_id,
@@ -14,14 +13,21 @@ const accountConvert = {
   }),
   fromFirestore: (snapshot, options) => {
     const data = snapshot.data(options);
-    return data;
+    return {
+      name: data.name,
+      totalAmount: data.total_amount,
+      totalExpenses: data.total_amount_expenses,
+      totalIncome: data.total_amount_income,
+      typeAccountId: data.type_account_id,
+    };
   },
 };
 
 export default {
   // Using for fetch query's
   ref,
-  fetchAll: () => ref.orderBy('created_at', 'desc').withConverter(accountConvert).limit(10).get(),
+  fetchAll: userId =>
+    ref.where('user_id', '==', userId).limit(10).withConverter(accountConvert).get(),
   fetchSingle: id => ref.doc(id).withConverter(accountConvert).get(),
   create: body => ref.withConverter(accountConvert).add(body),
   update: (id, body) => ref.doc(id).withConverter(accountConvert).update(body),

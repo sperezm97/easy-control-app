@@ -1,8 +1,10 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
+import { useSelector } from 'react-redux';
 import { useNavigation, StackActions } from '@react-navigation/native';
 import { View, ActiveAccount, FloatingButton, Card, List } from '../../../component';
 import ListItem from './ListItem';
+import { getAllAccounts } from '../../../store/accounts/selector';
 
 const styles = StyleSheet.create({
   containerButton: {
@@ -14,29 +16,16 @@ const styles = StyleSheet.create({
 
 const AccountsList = () => {
   const navigation = useNavigation();
+  const accounts = useSelector(getAllAccounts);
 
   const onOpenModal = () => navigation.dispatch(StackActions.push('AccountsCreate'));
-  const renderItem = () => {
-    return <ListItem />;
-  };
+  const renderItem = ({ item }) => <ListItem {...item} />;
   return (
     <View flex>
       <>
         <ActiveAccount />
         <Card type="container">
-          <List
-            data={[
-              { id: 1 },
-              { id: 2 },
-              { id: 3 },
-              { id: 4 },
-              { id: 5 },
-              { id: 6 },
-              { id: 7 },
-              { id: 8 },
-            ]}
-            renderItem={renderItem}
-          />
+          <List data={accounts} renderItem={renderItem} />
         </Card>
       </>
       <View style={styles.containerButton}>

@@ -22,7 +22,17 @@ const TransactionsList = () => {
   useEffect(() => {
     dispatch({ type: 'user/fetch' });
     dispatch({ type: 'options/fetch' });
+    return () => {};
+  }, []);
+
+  useEffect(() => {
     dispatch({ type: 'transactions/fetch' });
+
+    return () => {};
+  }, []);
+
+  useEffect(() => {
+    dispatch({ type: 'accounts/fetch' });
     return () => {};
   }, []);
 

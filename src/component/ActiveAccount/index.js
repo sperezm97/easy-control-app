@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import Card from '../Layout/Card';
 import Icon from '../Layout/Icon';
 import Text from '../Layout/Text';
@@ -7,8 +8,11 @@ import styles from './styles';
 import { colors } from '../../styles';
 import IncomeCard from '../IncomeCard';
 import ExpensesCard from '../ExpensesCard';
+import { getActiveAccount } from '../../store/accounts/selector';
+import { formatMoneyValue } from '../../utils';
 
 const ActiveAccount = () => {
+  const activeAccount = useSelector(getActiveAccount);
   return (
     <>
       <Card type="body">
@@ -18,7 +22,7 @@ const ActiveAccount = () => {
           </View>
           <View style={styles.containerAccount}>
             <Text type="body">Cuenta de Ahorro</Text>
-            <Text type="bodyBold">Uso corriente</Text>
+            <Text type="bodyBold">{activeAccount.name}</Text>
           </View>
         </View>
         <View>
@@ -26,7 +30,7 @@ const ActiveAccount = () => {
             Total
           </Text>
           <Text type="bodyBold" color={colors.primaryColor}>
-            $80,000.00
+            {formatMoneyValue(activeAccount.totalAmount)}
           </Text>
         </View>
       </Card>

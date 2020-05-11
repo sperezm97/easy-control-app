@@ -9,9 +9,13 @@ const user = createSlice({
     setData: (state, action) => {
       state.data = action.payload;
     },
+
+    updateAccount: (state, action) => {
+      state.data.activeAccount = action.payload;
+    },
   },
 });
 
-export const { setData } = user.actions;
+export const { setData, updateAccount } = user.actions;
 
 export default user.reducer;

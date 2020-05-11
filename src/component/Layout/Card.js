@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 10,
   },
   container: {
+    flex: 1,
     backgroundColor: colors.white,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,

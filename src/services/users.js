@@ -10,18 +10,19 @@ const userConvert = {
     last_name: +user.lastName,
     profile_photo: user.profilePhoto,
     email: user.email,
+    active_account_id: user.activeAccount,
   }),
   fromFirestore: (snapshot, options) => {
-    let data = snapshot.data(options);
-    data = {
+    const data = snapshot.data(options);
+    return {
       socialAuthId: data.social_auth_id,
       deviceId: data.device_id,
       firstName: data.first_name,
       lastName: data.last_name,
       profilePhoto: data.profile_photo,
       email: data.email,
+      activeAccountId: data.active_account_id,
     };
-    return data;
   },
 };
 
