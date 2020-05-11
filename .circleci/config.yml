@@ -29,11 +29,13 @@ publish: &publish
 
 jobs:
   publish_to_expo_dev:
+    context: app
     environment:
       EXPO_RELEASE_CHANNEL: dev
     <<: *publish
 
   publish_to_expo_prod:
+    context: app
     environment:
       EXPO_RELEASE_CHANNEL: default
     <<: *publish
@@ -43,12 +45,10 @@ workflows:
   easy-control-app:
     jobs:
       - publish_to_expo_dev:
-          context: app
           filters:
             branches:
               only: development
       - publish_to_expo_prod:
-          context: app
           filters:
             branches:
               only: master
