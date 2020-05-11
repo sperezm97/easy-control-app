@@ -1,5 +1,5 @@
 ---
-version: 2
+version: 2.1
 publish: &publish
   working_directory: ~/repo
   docker:
@@ -29,6 +29,7 @@ publish: &publish
 
 jobs:
   publish_to_expo_dev:
+    context: app
     environment:
       EXPO_RELEASE_CHANNEL: dev
     <<: *publish
