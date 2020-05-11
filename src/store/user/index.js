@@ -1,6 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {};
+const initialState = {
+  data: {
+    activeAccount: '',
+  },
+};
 
 const user = createSlice({
   name: 'user',
@@ -10,12 +14,12 @@ const user = createSlice({
       state.data = action.payload;
     },
 
-    updateAccount: (state, action) => {
-      state.data.activeAccount = action.payload;
+    updateActiveAccount: (state, action) => {
+      state.data.activeAccountId = action.payload;
     },
   },
 });
 
-export const { setData, updateAccount } = user.actions;
+export const { setData, updateActiveAccount } = user.actions;
 
 export default user.reducer;

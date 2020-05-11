@@ -30,5 +30,5 @@ export default {
   // Using for fetch query's
   fetchSingle: id => ref.doc(id).withConverter(userConvert).get(),
   create: body => ref.withConverter(userConvert).add(body),
-  update: (id, body) => ref.doc(id).withConverter(userConvert).update(body),
+  update: (id, body) => ref.doc(id).update(body),
 };
