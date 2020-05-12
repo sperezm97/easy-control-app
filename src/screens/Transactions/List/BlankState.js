@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
 const BlankState = () => {
   return (
     <View center style={styles.container}>
-      <Text>Not transactions founded</Text>
+      <Text type="body">Not transactions founded</Text>
     </View>
   );
 };
