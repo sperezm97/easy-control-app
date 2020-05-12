@@ -1,11 +1,14 @@
-import { takeLatest, call, put, select } from 'redux-saga/effects';
+import { takeLatest, call, put, select, delay } from 'redux-saga/effects';
 import { transactionService } from '../../services';
 import { formatDataFromFb } from '../../utils';
 import { getActiveAccountId, getUserId } from '../user/selectors';
 
 function* fetchTransactions() {
+  delay(1500);
   try {
-    const data = formatDataFromFb(yield call(transactionService.fetchAll, '5TaeP1gaRsuoiDVXApqF'));
+    const userId = yield select(getUserId);
+    const actualAccountId = yield select(getActiveAccountId);
+    const data = formatDataFromFb(yield call(transactionService.fetchAll, userId, actualAccountId));
     yield put({ type: 'transactions/setData', payload: data });
   } catch (error) {
     console.log(error);
