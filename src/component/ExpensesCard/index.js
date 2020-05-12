@@ -14,7 +14,7 @@ const ExpensesCard = () => {
         Total Expenses
       </Text>
       <Text type="bodyBold" color={colors.danger}>
-        {formatMoneyValue(activeAccount.totalExpenses)}
+        {formatMoneyValue(activeAccount?.totalExpenses)}
       </Text>
     </Card>
   );

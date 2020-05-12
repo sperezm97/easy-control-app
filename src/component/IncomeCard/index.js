@@ -14,7 +14,7 @@ const IncomeCard = () => {
         Total Income
       </Text>
       <Text type="bodyBold" color={colors.success}>
-        {formatMoneyValue(activeAccount.totalIncome)}
+        {formatMoneyValue(activeAccount?.totalIncome)}
       </Text>
     </Card>
   );

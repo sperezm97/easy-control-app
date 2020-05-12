@@ -8,8 +8,12 @@ function* fetchTransactions() {
   try {
     const userId = yield select(getUserId);
     const actualAccountId = yield select(getActiveAccountId);
-    const data = formatDataFromFb(yield call(transactionService.fetchAll, userId, actualAccountId));
-    yield put({ type: 'transactions/setData', payload: data });
+    if (userId && actualAccountId) {
+      const data = formatDataFromFb(
+        yield call(transactionService.fetchAll, userId, actualAccountId),
+      );
+      yield put({ type: 'transactions/setData', payload: data });
+    }
   } catch (error) {
     console.log(error);
   }

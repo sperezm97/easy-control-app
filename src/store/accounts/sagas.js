@@ -7,7 +7,9 @@ function* fetchAccounts() {
   try {
     const data = formatDataFromFb(yield call(accountService.fetchAll, '5TaeP1gaRsuoiDVXApqF'));
     yield put({ type: 'accounts/setData', payload: data });
-    yield call(fetchActiveAccount);
+    if (data.length) {
+      yield call(fetchActiveAccount);
+    }
   } catch (error) {
     console.log(error);
   }

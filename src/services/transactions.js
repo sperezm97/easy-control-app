@@ -38,10 +38,9 @@ export default {
   ref,
   fetchAll: (userId, accountId) =>
     ref
-      .orderBy('created_at', 'desc')
-      .limit(10)
       .where('user_id', '==', userId)
       .where('account_id', '==', accountId)
+      .orderBy('created_at', 'desc')
       .withConverter(transactionConvert)
       .get(),
 

@@ -31,5 +31,4 @@ export default {
   fetchSingle: id => ref.doc(id).withConverter(accountConvert).get(),
   create: body => ref.withConverter(accountConvert).add(body),
   update: (id, body) => ref.doc(id).withConverter(accountConvert).update(body),
-  delete: id => ref.delete(id),
 };

@@ -33,14 +33,14 @@ const TransactionsList = () => {
   }, []);
 
   useEffect(() => {
-    dispatch({ type: 'transactions/fetch' });
-    return () => {};
-  }, [actualAccount]);
-
-  useEffect(() => {
     dispatch({ type: 'accounts/fetch' });
     return () => {};
   }, []);
+
+  useEffect(() => {
+    dispatch({ type: 'transactions/fetch' });
+    return () => {};
+  }, [actualAccount]);
 
   const openModal = () => navigation.dispatch(StackActions.push('TransactionsCreate'));
 

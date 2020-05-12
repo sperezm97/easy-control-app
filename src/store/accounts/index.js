@@ -1,7 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  activeAccount: {},
+  activeAccount: {
+    name: '',
+    totalAmount: 0,
+    totalExpenses: 0,
+    totalIncome: 0,
+    typeAccountId: '',
+    userId: '',
+  },
   data: [],
 };
 

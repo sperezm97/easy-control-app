@@ -30,7 +30,7 @@ const ActiveAccount = () => {
             Total
           </Text>
           <Text type="bodyBold" color={colors.primaryColor}>
-            {formatMoneyValue(activeAccount.totalAmount)}
+            {formatMoneyValue(activeAccount?.totalAmount)}
           </Text>
         </View>
       </Card>
