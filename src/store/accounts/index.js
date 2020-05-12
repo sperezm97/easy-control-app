@@ -16,6 +16,11 @@ const accounts = createSlice({
       state.activeAccount = state.data.find(ac => ac.id == action.payload);
     },
   },
+  extraReducers: {
+    'user/updateActiveAccount': (state, action) => {
+      state.activeAccount = state.data.find(ac => ac.id == action.payload);
+    },
+  },
 });
 
 export const { setData, setActiveAccountData } = accounts.actions;

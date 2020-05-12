@@ -9,9 +9,9 @@ export const getFormatTransactions = createSelector(
   (trans, cat) => {
     return trans.reduce((acc, item) => {
       const tempItem = { ...item };
-      tempItem.category = cat.find(c => c.id == item.category_id).name;
-      tempItem.created_at = convertDate(item.created_at);
-      delete tempItem.category_id;
+      tempItem.category = cat.find(c => c.id == item.categoryId).name;
+      tempItem.createdAt = convertDate(item.createdAt);
+      delete tempItem.categoryId;
       acc.push(tempItem);
       return acc;
     }, []);

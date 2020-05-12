@@ -1,7 +1,7 @@
 import { all } from 'redux-saga/effects';
 import { watchFetchTransactions, watchCreateTransactions } from './transactions/sagas';
 import watchFetchOptions from './options/sagas';
-import { watchFetchUser } from './user/sagas';
+import { watchFetchUser, watchUpdateActiveAccount } from './user/sagas';
 import { watchFetchAccounts, watchCreateAccounts } from './accounts/sagas';
 
 export default function* sagas() {
@@ -12,5 +12,6 @@ export default function* sagas() {
     watchFetchAccounts(),
     watchCreateTransactions(),
     watchCreateAccounts(),
+    watchUpdateActiveAccount(),
   ]);
 }

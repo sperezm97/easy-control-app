@@ -1,4 +1,4 @@
-import { Dimensions } from 'react-native';
+import { Dimensions, Platform } from 'react-native';
 import colors from './colors';
 
 export default {
@@ -22,4 +22,7 @@ export default {
     shadowOpacity: 0.2,
     shadowRadius: 3,
   },
+
+  isAndroid: Platform.OS == 'android',
+  isiOS: Platform.OS == 'ios',
 };
