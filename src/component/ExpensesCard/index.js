@@ -8,13 +8,14 @@ import { formatMoneyValue } from '../../utils';
 
 const ExpensesCard = () => {
   const activeAccount = useSelector(getActiveAccount);
+  const value = activeAccount?.totalExpenses || '';
   return (
     <Card type="right">
       <Text type="body" color={colors.grey}>
         Total Expenses
       </Text>
       <Text type="bodyBold" color={colors.danger}>
-        {formatMoneyValue(activeAccount?.totalExpenses)}
+        {formatMoneyValue(value)}
       </Text>
     </Card>
   );

@@ -13,6 +13,7 @@ import { formatMoneyValue } from '../../utils';
 
 const ActiveAccount = () => {
   const activeAccount = useSelector(getActiveAccount);
+  const value = activeAccount?.totalAmount || '';
   return (
     <>
       <Card type="body">
@@ -30,7 +31,7 @@ const ActiveAccount = () => {
             Total
           </Text>
           <Text type="bodyBold" color={colors.primaryColor}>
-            {formatMoneyValue(activeAccount?.totalAmount)}
+            {formatMoneyValue(value)}
           </Text>
         </View>
       </Card>

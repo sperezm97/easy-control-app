@@ -8,13 +8,14 @@ import { formatMoneyValue } from '../../utils';
 
 const IncomeCard = () => {
   const activeAccount = useSelector(getActiveAccount);
+  const value = activeAccount?.totalIncome || '';
   return (
     <Card type="left">
       <Text type="body" color={colors.grey}>
         Total Income
       </Text>
       <Text type="bodyBold" color={colors.success}>
-        {formatMoneyValue(activeAccount?.totalIncome)}
+        {formatMoneyValue(value)}
       </Text>
     </Card>
   );

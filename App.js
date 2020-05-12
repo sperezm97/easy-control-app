@@ -18,13 +18,19 @@ const style = {
 YellowBox.ignoreWarnings(['Setting a timer']);
 
 export default function App() {
-  useEffect(() => {
-    (async () => {
-      const value = await AsyncStorage.getItem('first');
-      if (!value) {
-        await AsyncStorage.setItem('first', true);
+  const verifyFirstUser = async () => {
+    try {
+      const first = JSON.parse(await AsyncStorage.getItem('first'))?.first;
+      if (!first) {
+        await AsyncStorage.setItem('first', JSON.stringify({ first: true }));
       }
-    })();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    verifyFirstUser();
   }, []);
 
   const [fontsLoaded] = useFonts({

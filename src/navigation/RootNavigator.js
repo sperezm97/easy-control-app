@@ -1,5 +1,6 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { AsyncStorage } from 'react-native';
 import AccountsNavigator from './AccountsNavigator';
 import ProfileNavigator from './ProfileNavigator';
 import ReportsNavigator from './ReportsNavigator';
@@ -35,43 +36,44 @@ const defaultOption = {
   },
 };
 
-const RootNavigator = () => (
-  <Tab.Navigator initialRouteName={'Accounts'} backBehavior="history" tabBarOptions={defaultOption}>
-    <Tab.Screen
-      name="Transactions"
-      component={TransactionsNavigator}
-      options={{
-        tabBarLabel: 'Transactions',
-        tabBarIcon: props => <Icon.TransactionList {...props} />,
-      }}
-    />
-    <Tab.Screen
-      name="Accounts"
-      component={AccountsNavigator}
-      options={{
-        tabBarLabel: 'Accounts',
-        tabBarIcon: props => <Icon.AccountBank {...props} />,
-      }}
-    />
-    {/* <Tab.Screen
-name="Reports"
-component={ReportsNavigator}
-options={{
-  tabBarLabel: 'Reports',
-  tabBarIcon: props => <Icon.Reports {...props} />,
-}}
-/>
-<Tab.Screen
-name="Profile"
-component={ProfileNavigator}
-options={{
-  tabBarLabel: 'Profile',
-  tabBarIcon: props => <Icon.Profile {...props} />,
-}}
-/> */}
-  </Tab.Navigator>
-);
-// const firstUser = await AsyncStorage.getItem('first');
-// const initial = firstUser ? 'Accounts' : 'Transactions';
-
+const RootNavigator = () => {
+  const value = AsyncStorage.getItem('first').then(({ first }) => first);
+  const initial = !value ? 'Accounts' : 'Transactions';
+  return (
+    <Tab.Navigator initialRouteName={initial} backBehavior="history" tabBarOptions={defaultOption}>
+      <Tab.Screen
+        name="Transactions"
+        component={TransactionsNavigator}
+        options={{
+          tabBarLabel: 'Transactions',
+          tabBarIcon: props => <Icon.TransactionList {...props} />,
+        }}
+      />
+      <Tab.Screen
+        name="Accounts"
+        component={AccountsNavigator}
+        options={{
+          tabBarLabel: 'Accounts',
+          tabBarIcon: props => <Icon.AccountBank {...props} />,
+        }}
+      />
+      {/* <Tab.Screen
+  name="Reports"
+  component={ReportsNavigator}
+  options={{
+    tabBarLabel: 'Reports',
+    tabBarIcon: props => <Icon.Reports {...props} />,
+  }}
+  />
+  <Tab.Screen
+  name="Profile"
+  component={ProfileNavigator}
+  options={{
+    tabBarLabel: 'Profile',
+    tabBarIcon: props => <Icon.Profile {...props} />,
+  }}
+  /> */}
+    </Tab.Navigator>
+  );
+};
 export default RootNavigator;

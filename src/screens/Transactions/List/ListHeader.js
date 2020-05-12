@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import RnPicker from 'react-native-picker-select';
 import { View, Text, Icon } from '../../../component';
@@ -9,22 +9,16 @@ import { getActiveAccountId } from '../../../store/user/selectors';
 
 const styles = StyleSheet.create({
   hr: {
-    borderColor: colors.grey,
-    borderWidth: 0.5,
+    backgroundColor: colors.grey,
     marginVertical: layout.spacingSm,
-    backgroundColor: colors.white,
+    height: 1,
   },
   pickerContainer: {
-    height: 30,
-    width: 100,
-    marginTop: -15,
+    height: 20,
   },
   input: {
     ...fonts.caption,
     color: colors.textColor,
-  },
-  icon: {
-    marginTop: 15,
   },
 });
 
@@ -39,39 +33,43 @@ const ListHeader = () => {
     }
   };
 
-  const renderIcon = () => (
-    <View style={styles.icon}>
-      <Icon.Down />
-    </View>
-  );
   const formatOptions = () =>
     accounts.map(i => ({
       label: i.name,
       value: i.id,
     }));
 
+  const placeholder = {
+    label: 'Select an active account',
+    value: null,
+    color: colors.grey,
+  };
+
   return (
     <>
       <View row between>
-        <View>
-          <Text type="bodyLight">Filter by account</Text>
-        </View>
-        <View style={styles.pickerContainer}>
+        <Text type="bodyLight">Filter by account</Text>
+        <View row style={styles.pickerContainer}>
           <RnPicker
+            onValueChange={updateActualAccount}
             items={formatOptions()}
+            placeholder={placeholder}
             value={activeAccount}
-            Icon={renderIcon}
+            Icon={() => <View />}
             style={{
               inputIOS: styles.input,
               inputAndroid: styles.input,
+              viewContainer: {
+                marginTop: Platform.select({
+                  ios: 5,
+                  android: -15,
+                }),
+              },
             }}
-            onValueChange={updateActualAccount}
-            placeholder={{
-              label: 'Select an active account',
-              color: colors.grey,
-              value: null,
-            }}
+            useNativeAndroidPickerStyle
+            doneText="Done"
           />
+          {/* <Icon.Down /> */}
         </View>
       </View>
       <View style={styles.hr} />
