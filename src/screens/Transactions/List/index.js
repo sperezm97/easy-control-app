@@ -7,6 +7,10 @@ import ListItem from './ListItem';
 import ListHeader from './ListHeader';
 import { getFormatTransactions } from '../../../store/transactions/selectors';
 import { layout } from '../../../styles';
+import { transactionService } from '../../../services';
+import { getActiveAccountId, getUserId } from '../../../store/user/selectors';
+import { formatDataFromFb } from '../../../utils';
+import { setData } from '../../../store/transactions';
 
 const styles = StyleSheet.create({
   containerButton: {
@@ -20,6 +24,8 @@ const TransactionsList = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
   const transactions = useSelector(getFormatTransactions);
+  const actualAccount = useSelector(getActiveAccountId);
+
   useEffect(() => {
     dispatch({ type: 'user/fetch' });
     dispatch({ type: 'options/fetch' });
@@ -28,9 +34,8 @@ const TransactionsList = () => {
 
   useEffect(() => {
     dispatch({ type: 'transactions/fetch' });
-
     return () => {};
-  }, []);
+  }, [actualAccount]);
 
   useEffect(() => {
     dispatch({ type: 'accounts/fetch' });

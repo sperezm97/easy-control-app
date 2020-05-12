@@ -35,18 +35,24 @@ const getOptions = {
 };
 
 export default {
-  // Using for fetch query's
   ref,
-
-  fetchAll: userId =>
+  fetchAll: (userId, accountId) =>
     ref
       .orderBy('created_at', 'desc')
       .limit(10)
       .where('user_id', '==', userId)
+      .where('account_id', '==', accountId)
       .withConverter(transactionConvert)
       .get(),
+
   fetchSingle: id => ref.doc(id).withConverter(transactionConvert).get(),
   create: body => ref.withConverter(transactionConvert).add(body),
-  update: (id, body) => ref.doc(id).withConverter(transactionConvert).update(body),
-  delete: id => ref.delete(id),
+
+  refreshTransactions: (userId, accountId) =>
+    ref
+      .orderBy('created_at', 'desc')
+      .limit(10)
+      .where('user_id', '==', userId)
+      .where('account_id', '==', accountId)
+      .withConverter(transactionConvert),
 };
