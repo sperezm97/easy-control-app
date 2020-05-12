@@ -36,11 +36,7 @@ const defaultOption = {
 };
 
 const RootNavigator = () => (
-  <Tab.Navigator
-    initialRouteName="Transactions"
-    backBehavior="history"
-    tabBarOptions={defaultOption}
-  >
+  <Tab.Navigator initialRouteName={'Accounts'} backBehavior="history" tabBarOptions={defaultOption}>
     <Tab.Screen
       name="Transactions"
       component={TransactionsNavigator}
@@ -58,22 +54,24 @@ const RootNavigator = () => (
       }}
     />
     {/* <Tab.Screen
-      name="Reports"
-      component={ReportsNavigator}
-      options={{
-        tabBarLabel: 'Reports',
-        tabBarIcon: props => <Icon.Reports {...props} />,
-      }}
-    />
-    <Tab.Screen
-      name="Profile"
-      component={ProfileNavigator}
-      options={{
-        tabBarLabel: 'Profile',
-        tabBarIcon: props => <Icon.Profile {...props} />,
-      }}
-    /> */}
+name="Reports"
+component={ReportsNavigator}
+options={{
+  tabBarLabel: 'Reports',
+  tabBarIcon: props => <Icon.Reports {...props} />,
+}}
+/>
+<Tab.Screen
+name="Profile"
+component={ProfileNavigator}
+options={{
+  tabBarLabel: 'Profile',
+  tabBarIcon: props => <Icon.Profile {...props} />,
+}}
+/> */}
   </Tab.Navigator>
 );
+// const firstUser = await AsyncStorage.getItem('first');
+// const initial = firstUser ? 'Accounts' : 'Transactions';
 
 export default RootNavigator;

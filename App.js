@@ -1,9 +1,9 @@
 /* eslint-disable global-require */
-import React from 'react';
+import React, { useEffect } from 'react';
 import './src/config/firebase';
 import { useFonts } from '@use-expo/font';
 import { AppLoading } from 'expo';
-import { SafeAreaView, StatusBar, YellowBox } from 'react-native';
+import { SafeAreaView, StatusBar, YellowBox, AsyncStorage } from 'react-native';
 import { Provider } from 'react-redux';
 import AppNavigator from './src/navigation';
 import { colors } from './src/styles';
@@ -18,6 +18,15 @@ const style = {
 YellowBox.ignoreWarnings(['Setting a timer']);
 
 export default function App() {
+  useEffect(() => {
+    (async () => {
+      const value = await AsyncStorage.getItem('first');
+      if (!value) {
+        await AsyncStorage.setItem('first', true);
+      }
+    })();
+  }, []);
+
   const [fontsLoaded] = useFonts({
     'Lora-Bold': require('./assets/fonts/Lora-Bold.ttf'),
     'Lora-Italic': require('./assets/fonts/Lora-Italic.ttf'),
