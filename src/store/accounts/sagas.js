@@ -27,7 +27,11 @@ function* fetchActiveAccount() {
 function* createAccount(payload) {
   try {
     const userId = yield select(getUserId);
-    yield call(accountService.create, { ...payload.values, userId });
+    yield call(accountService.create, {
+      ...payload.values,
+      userId,
+      totalIncome: payload.values.totalAmount,
+    });
   } catch (error) {
     console.log(error);
   }

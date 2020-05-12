@@ -22,7 +22,7 @@ const ActiveAccount = () => {
             <Icon.Account />
           </View>
           <View style={styles.containerAccount}>
-            <Text type="body">Cuenta de Ahorro</Text>
+            <Text type="body">Actual Account</Text>
             <Text type="bodyBold">{activeAccount.name}</Text>
           </View>
         </View>

@@ -11,6 +11,7 @@ import { transactionService } from '../../../services';
 import { getActiveAccountId, getUserId } from '../../../store/user/selectors';
 import { formatDataFromFb } from '../../../utils';
 import { setData } from '../../../store/transactions';
+import BlankState from './BlankState';
 
 const styles = StyleSheet.create({
   containerButton: {
@@ -45,6 +46,7 @@ const TransactionsList = () => {
   const openModal = () => navigation.dispatch(StackActions.push('TransactionsCreate'));
 
   const renderHeader = () => <ListHeader />;
+  const renderEmpty = () => <BlankState />;
 
   const renderItem = ({ item }) => <ListItem {...item} />;
 
@@ -53,8 +55,8 @@ const TransactionsList = () => {
       <>
         <ActiveAccount />
         <Card type="container">
-          {renderHeader()}
-          <List data={transactions} renderItem={renderItem} />
+          {/* {renderHeader()} */}
+          <List data={transactions} renderItem={renderItem} empty={renderEmpty} />
         </Card>
       </>
       <View style={styles.containerButton}>

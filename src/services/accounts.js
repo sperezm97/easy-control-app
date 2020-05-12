@@ -8,8 +8,8 @@ const accountConvert = {
     total_amount: +acc.totalAmount,
     type_account_id: acc.typeAccountId,
     user_id: acc.userId,
-    total_amount_income: +acc.totalExpenses || 0,
-    total_amount_expenses: +acc.totalIncome || 0,
+    total_amount_income: +acc.totalIncome || 0,
+    total_amount_expenses: +acc.totalExpenses || 0,
   }),
   fromFirestore: (snapshot, options) => {
     const data = snapshot.data(options);

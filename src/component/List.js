@@ -4,11 +4,12 @@ import { FlatList } from 'react-native';
 import PropTypes from 'prop-types';
 
 const List = props => {
-  const { data, renderItem, header, onEndReached, isRefresh, onRefresh } = props;
+  const { data, renderItem, header, onEndReached, isRefresh, onRefresh, empty } = props;
   return (
     <FlatList
       keyExtractor={item => String(item.id)}
       ListHeaderComponent={header}
+      ListEmptyComponent={empty}
       data={data}
       renderItem={renderItem}
       onEndReachedThreshold={1}
@@ -29,6 +30,7 @@ List.propTypes = {
   onEndReached: PropTypes.func,
   isRefresh: PropTypes.bool,
   onRefresh: PropTypes.func,
+  empty: PropTypes.func.isRequired,
 };
 
 export default List;

@@ -32,8 +32,8 @@ const ListItem = props => {
   const getColorByTransactionType = () =>
     transactionTypeId == 'rXhNf8qWxQooVeaZJ1Tb' ? colors.success : colors.danger;
   return (
-    <View row between style={styles.container}>
-      <View row>
+    <View row between style={styles.container} center>
+      <View row center>
         <View style={styles.circle}>
           <Text type="subTitle" color={colors.white}>
             {firstCategoryLetter}

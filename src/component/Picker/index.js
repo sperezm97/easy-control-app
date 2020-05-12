@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
   },
   iconContainer: {
     marginRight: layout.spacingMd,
+    marginTop: layout.isAndroid ? 14 : 0,
   },
 });
 

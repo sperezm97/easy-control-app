@@ -25,7 +25,7 @@ const View = props => {
 };
 
 View.propTypes = {
-  style: PropTypes.object,
+  style: PropTypes.oneOfType([PropTypes.object, PropTypes.arrayOf(PropTypes.object)]),
   row: PropTypes.bool,
   center: PropTypes.bool,
   column: PropTypes.bool,

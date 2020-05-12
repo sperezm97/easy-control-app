@@ -15,11 +15,14 @@ const styles = StyleSheet.create({
   },
   pickerContainer: {
     height: 20,
+    paddingLeft: layout.spacingMd,
+    marginVertical: layout.spacingNor,
   },
   input: {
     ...fonts.caption,
     color: colors.textColor,
   },
+  iconContainer: {},
 });
 
 const ListHeader = () => {
@@ -44,30 +47,32 @@ const ListHeader = () => {
     value: null,
     color: colors.grey,
   };
+  const renderIcon = () => (
+    <View style={styles.iconContainer}>
+      <Icon.Down />
+    </View>
+  );
 
   return (
     <>
       <View row between>
-        <Text type="bodyLight">Filter by account</Text>
-        <View row style={styles.pickerContainer}>
+        <View>
+          <Text type="bodyLight">Filter by account</Text>
+        </View>
+        <View style={styles.pickerContainer}>
           <RnPicker
             onValueChange={updateActualAccount}
             items={formatOptions()}
             placeholder={placeholder}
             value={activeAccount}
-            Icon={() => <View />}
+            Icon={renderIcon}
             style={{
-              inputIOS: styles.input,
+              inputAndroidContainer: {},
+              inputIOSContainer: {},
+              iconContainer: {},
               inputAndroid: styles.input,
-              viewContainer: {
-                marginTop: Platform.select({
-                  ios: 5,
-                  android: -15,
-                }),
-              },
+              inputIOS: styles.input,
             }}
-            useNativeAndroidPickerStyle
-            doneText="Done"
           />
           {/* <Icon.Down /> */}
         </View>
