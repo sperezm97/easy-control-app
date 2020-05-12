@@ -26,11 +26,11 @@ const styles = StyleSheet.create({
 });
 
 const ListItem = props => {
-  const { category, created_at, description, price, transaction_type_id } = props;
+  const { category, createdAt, description, price, transactionTypeId } = props;
   const firstCategoryLetter = category.charAt(0);
 
   const getColorByTransactionType = () =>
-    transaction_type_id == 'rXhNf8qWxQooVeaZJ1Tb' ? colors.success : colors.danger;
+    transactionTypeId == 'rXhNf8qWxQooVeaZJ1Tb' ? colors.success : colors.danger;
   return (
     <View row between style={styles.container}>
       <View row>
@@ -51,7 +51,7 @@ const ListItem = props => {
           {formatMoneyValue(price)}
         </Text>
         <Text type="overline" color={colors.grey}>
-          {created_at}
+          {createdAt}
         </Text>
       </View>
     </View>
@@ -59,13 +59,13 @@ const ListItem = props => {
 };
 
 ListItem.propTypes = {
-  account_id: PropTypes.string.isRequired,
+  accountId: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
-  created_at: PropTypes.string.isRequired,
+  createdAt: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
-  transaction_type_id: PropTypes.string.isRequired,
-  updated_at: PropTypes.object.isRequired,
+  transactionTypeId: PropTypes.string.isRequired,
+  updatedAt: PropTypes.object.isRequired,
 };
 export default ListItem;

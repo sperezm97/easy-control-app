@@ -9,15 +9,29 @@ const transactionConvert = {
     transaction_type_id: trans.transactionTypeId,
     description: trans.description,
     price: +trans.price,
-    createdAt: trans.createdAt || firebase.firestore.Timestamp.now(),
-    updatedAt: trans.updatedAt || firebase.firestore.Timestamp.now(),
+    created_at: trans.createdAt || firebase.firestore.Timestamp.now(),
+    updated_at: trans.updatedAt || firebase.firestore.Timestamp.now(),
     user_id: trans.userId,
     account_id: trans.accountId,
   }),
   fromFirestore: (snapshot, options) => {
     const data = snapshot.data(options);
-    return data;
+    return {
+      categoryId: data.category_id,
+      transactionTypeId: data.transaction_type_id,
+      description: data.description,
+      price: data.price,
+      createdAt: data.created_at,
+      updatedAt: data.updated_at,
+      userId: data.user_id,
+      accountId: data.account_id,
+    };
   },
+};
+
+const getOptions = {
+  // db.enableNetwork()
+  source: 'cache',
 };
 
 export default {

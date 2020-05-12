@@ -44,7 +44,6 @@ const ListHeader = () => {
       <Icon.Down />
     </View>
   );
-
   const formatOptions = () =>
     accounts.map(i => ({
       label: i.name,
