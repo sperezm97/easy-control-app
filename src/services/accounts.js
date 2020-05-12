@@ -30,5 +30,4 @@ export default {
     ref.where('user_id', '==', userId).limit(10).withConverter(accountConvert).get(),
   fetchSingle: id => ref.doc(id).withConverter(accountConvert).get(),
   create: body => ref.withConverter(accountConvert).add(body),
-  update: (id, body) => ref.doc(id).withConverter(accountConvert).update(body),
 };

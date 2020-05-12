@@ -22,6 +22,9 @@ const accounts = createSlice({
     setActiveAccountData: (state, action) => {
       state.activeAccount = state.data.find(ac => ac.id == action.payload);
     },
+    setNewAccount: (state, action) => {
+      state.data.push(action.payload);
+    },
   },
   extraReducers: {
     'user/updateActiveAccount': (state, action) => {

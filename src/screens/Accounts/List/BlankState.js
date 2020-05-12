@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
 const BlankState = () => {
   return (
     <View center style={styles.container}>
-      <Text>Not accounts founded</Text>
+      <Text type="body">Not accounts founded</Text>
     </View>
   );
 };

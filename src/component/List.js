@@ -16,7 +16,7 @@ const List = props => {
       onEndReached={onEndReached}
       refreshing={isRefresh}
       onRefresh={onRefresh}
-      scrollEnabled={data.length > 7}
+      scrollEnabled={data.length > 4}
       bounces
     />
   );
