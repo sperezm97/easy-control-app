@@ -1,16 +1,11 @@
 import React, { useEffect } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, AsyncStorage } from 'react-native';
 import { useNavigation, StackActions } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 import { ActiveAccount, View, Card, List, FloatingButton } from '../../../component';
 import ListItem from './ListItem';
-import ListHeader from './ListHeader';
 import { getFormatTransactions } from '../../../store/transactions/selectors';
-import { layout } from '../../../styles';
-import { transactionService } from '../../../services';
-import { getActiveAccountId, getUserId } from '../../../store/user/selectors';
-import { formatDataFromFb } from '../../../utils';
-import { setData } from '../../../store/transactions';
+import { getActiveAccountId } from '../../../store/user/selectors';
 import BlankState from './BlankState';
 
 const styles = StyleSheet.create({
@@ -28,24 +23,31 @@ const TransactionsList = () => {
   const actualAccount = useSelector(getActiveAccountId);
 
   useEffect(() => {
-    dispatch({ type: 'user/fetch' });
+    (async () => {
+      const userId = await AsyncStorage.getItem('user');
+      if (userId) {
+        dispatch({ type: 'user/fetch', userId });
+      } else {
+        dispatch({ type: 'user/create' });
+      }
+    })();
+  }, []);
+
+  useEffect(() => {
+    // dispatch({ type: 'user/fetch' });
     dispatch({ type: 'options/fetch' });
-    return () => {};
   }, []);
 
   useEffect(() => {
     dispatch({ type: 'accounts/fetch' });
-    return () => {};
   }, []);
 
   useEffect(() => {
     dispatch({ type: 'transactions/fetch' });
-    return () => {};
   }, [actualAccount]);
 
   const openModal = () => navigation.dispatch(StackActions.push('TransactionsCreate'));
 
-  const renderHeader = () => <ListHeader />;
   const renderEmpty = () => <BlankState />;
 
   const renderItem = ({ item }) => <ListItem {...item} />;

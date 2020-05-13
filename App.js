@@ -18,21 +18,6 @@ const style = {
 YellowBox.ignoreWarnings(['Setting a timer']);
 
 export default function App() {
-  const verifyFirstUser = async () => {
-    try {
-      const first = JSON.parse(await AsyncStorage.getItem('first'))?.first;
-      if (!first) {
-        await AsyncStorage.setItem('first', JSON.stringify({ first: true }));
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    verifyFirstUser();
-  }, []);
-
   const [fontsLoaded] = useFonts({
     'Lora-Bold': require('./assets/fonts/Lora-Bold.ttf'),
     'Lora-Italic': require('./assets/fonts/Lora-Italic.ttf'),
