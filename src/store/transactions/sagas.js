@@ -1,6 +1,6 @@
 import { takeLatest, call, put, select, delay } from 'redux-saga/effects';
 import { transactionService } from '../../services';
-import { formatDataFromFb } from '../../utils';
+import { formatDataFromFb, fbDateTime } from '../../utils';
 import { getActiveAccountId, getUserId } from '../user/selectors';
 
 function* fetchTransactions() {
@@ -23,10 +23,19 @@ function* createTransaction(payload) {
   try {
     const accountId = yield select(getActiveAccountId);
     const userId = yield select(getUserId);
-    yield call(transactionService.create, {
-      ...payload.values,
+
+    const body = {
+      description: payload.values.description,
+      transactionTypeId: payload.values.transactionTypeId,
+      categoryId: payload.values.categoryId,
+      price: +payload.values.price,
       accountId,
       userId,
+    };
+    const trans = yield call(transactionService.create, body);
+    yield put({
+      type: 'transactions/setNewTransaction',
+      payload: { id: trans.id, ...body, createdAt: fbDateTime(), updatedAt: fbDateTime() },
     });
   } catch (error) {
     console.log(error);
