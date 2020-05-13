@@ -26,8 +26,7 @@ const accountConvert = {
 export default {
   // Using for fetch query's
   ref,
-  fetchAll: userId =>
-    ref.where('user_id', '==', userId).limit(10).withConverter(accountConvert).get(),
+  fetchAll: userId => ref.where('user_id', '==', userId).withConverter(accountConvert).get(),
   fetchSingle: id => ref.doc(id).withConverter(accountConvert).get(),
   create: body => ref.withConverter(accountConvert).add(body),
 };
