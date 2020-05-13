@@ -30,6 +30,27 @@ const accounts = createSlice({
     'user/updateActiveAccount': (state, action) => {
       state.activeAccount = state.data.find(ac => ac.id == action.payload);
     },
+    'transactions/setNewTransaction': (state, action) => {
+      const isExpenses = action.payload.transactionTypeId === 'ks25ee53mu6Ja4V6VKPl';
+
+      if (isExpenses) {
+        const totalAmount = state.activeAccount.totalAmount - action.payload.price;
+        const totalExpenses = state.activeAccount.totalExpenses + action.payload.price;
+        state.activeAccount = {
+          ...state.activeAccount,
+          totalAmount,
+          totalExpenses,
+        };
+      } else {
+        const totalAmount = state.activeAccount.totalAmount + action.payload.price;
+        const totalIncome = state.activeAccount.totalIncome + action.payload.price;
+        state.activeAccount = {
+          ...state.activeAccount,
+          totalAmount,
+          totalIncome,
+        };
+      }
+    },
   },
 });
 
