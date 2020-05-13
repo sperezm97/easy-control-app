@@ -4,7 +4,7 @@ import Card from '../Layout/Card';
 import Text from '../Layout/Text';
 import { colors } from '../../styles';
 import { getActiveAccount } from '../../store/accounts/selector';
-import { formatMoneyValue } from '../../utils';
+import { formatPrice } from '../../utils';
 
 const ExpensesCard = () => {
   const activeAccount = useSelector(getActiveAccount);
@@ -15,7 +15,7 @@ const ExpensesCard = () => {
         Total Expenses
       </Text>
       <Text type="bodyBold" color={colors.danger}>
-        {formatMoneyValue(value)}
+        {formatPrice(value)}
       </Text>
     </Card>
   );

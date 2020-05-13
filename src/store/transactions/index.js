@@ -11,9 +11,12 @@ const transactions = createSlice({
     setData: (state, action) => {
       state.data = action.payload;
     },
+    setNewTransaction: (state, action) => {
+      state.data.unshift(action.payload);
+    },
   },
 });
 
-export const { setData } = transactions.actions;
+export const { setData, setNewTransaction } = transactions.actions;
 
 export default transactions.reducer;

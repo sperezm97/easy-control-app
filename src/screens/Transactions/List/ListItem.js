@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import { View, Text } from '../../../component';
 import { layout, globalStyles, colors } from '../../../styles';
-import { formatMoneyValue, convertDate } from '../../../utils';
+import { formatPrice, convertDate } from '../../../utils';
 
 const styles = StyleSheet.create({
   container: {
@@ -31,6 +31,7 @@ const ListItem = props => {
 
   const getColorByTransactionType = () =>
     transactionTypeId == 'rXhNf8qWxQooVeaZJ1Tb' ? colors.success : colors.danger;
+
   return (
     <View row between style={styles.container} center>
       <View row center>
@@ -48,7 +49,7 @@ const ListItem = props => {
       </View>
       <View>
         <Text type="caption" color={getColorByTransactionType()} style={styles.price}>
-          {formatMoneyValue(price)}
+          {formatPrice(price)}
         </Text>
         <Text type="overline" color={colors.grey}>
           {createdAt}

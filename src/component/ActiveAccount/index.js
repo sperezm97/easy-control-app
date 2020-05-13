@@ -9,7 +9,7 @@ import { colors } from '../../styles';
 import IncomeCard from '../IncomeCard';
 import ExpensesCard from '../ExpensesCard';
 import { getActiveAccount } from '../../store/accounts/selector';
-import { formatMoneyValue } from '../../utils';
+import { formatPrice } from '../../utils';
 
 const ActiveAccount = () => {
   const activeAccount = useSelector(getActiveAccount);
@@ -31,7 +31,7 @@ const ActiveAccount = () => {
             Total
           </Text>
           <Text type="bodyBold" color={colors.primaryColor}>
-            {formatMoneyValue(value)}
+            {formatPrice(value)}
           </Text>
         </View>
       </Card>
