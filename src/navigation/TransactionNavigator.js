@@ -6,27 +6,35 @@ const TransactionsStack = createStackNavigator();
 
 const defaultOptions = {
   headerShown: false,
-  headerTitleAlign: 'center',
-  cardShadowEnabled: true,
-  cardOverlayEnabled: true,
-  safeAreaInsets: {
-    top: 24,
-    bottom: 24,
-    right: 16,
-    left: 15,
+};
+
+const config = {
+  animation: 'timing',
+  config: {
+    duration: 300,
   },
 };
 
 const TransactionsNavigator = () => (
   <TransactionsStack.Navigator
     headerMode="none"
-    mode="card"
+    mode="modal"
     initialRouteName="Transactions"
     screenOptions={defaultOptions}
     keyboardHandlingEnabled
   >
     <TransactionsStack.Screen name="TransactionsList" component={TransactionsListScreen} />
-    <TransactionsStack.Screen name="TransactionsCreate" component={TransactionsCreateScreen} />
+    <TransactionsStack.Screen
+      name="TransactionsCreate"
+      component={TransactionsCreateScreen}
+      options={{
+        transitionSpec: {
+          open: config,
+          close: config,
+        },
+        gestureDirection: 'vertical',
+      }}
+    />
   </TransactionsStack.Navigator>
 );
 

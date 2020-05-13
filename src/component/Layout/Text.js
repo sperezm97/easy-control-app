@@ -1,53 +1,32 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/forbid-prop-types */
+/* eslint-disable react/require-default-props */
 import React from 'react';
-import { Text } from 'react-native';
-import { fonts } from '../../styles';
+import { Text as RNText } from 'react-native';
+import PropTypes from 'prop-types';
+import { fonts, colors } from '../../styles';
 
-export default {
-  LargeTitle: props => (
-    <Text {...props} style={[fonts.largeTitle, { color: props.color }]}>
-      {props.children}
-    </Text>
-  ),
-  Title: props => (
-    <Text {...props} style={[fonts.title, { color: props.color }]}>
-      {props.children}
-    </Text>
-  ),
-  SubTitle: props => (
-    <Text {...props} style={[fonts.subTitle, { color: props.color }]}>
-      {props.children}
-    </Text>
-  ),
-  HeadLine: props => (
-    <Text {...props} style={[fonts.headLine, { color: props.color }]}>
-      {props.children}
-    </Text>
-  ),
-  Body: props => (
-    <Text {...props} style={[fonts.body, { color: props.color }]}>
-      {props.children}
-    </Text>
-  ),
-  BodyLarge: props => (
-    <Text {...props} style={[fonts.bodyLarge, { color: props.color }]}>
-      {props.children}
-    </Text>
-  ),
-  Caption: props => (
-    <Text {...props} style={[fonts.caption, { color: props.color }]}>
-      {props.children}
-    </Text>
-  ),
-  Overline: props => (
-    <Text {...props} style={[fonts.overline, { color: props.color }]}>
-      {props.children}
-    </Text>
-  ),
-  Button: props => (
-    <Text {...props} style={[fonts.button, { color: props.color }]}>
-      {props.children}
-    </Text>
-  ),
+const Text = props => {
+  const { type, color, children, weight, style } = props;
+  const fontStyle = fonts[type];
+  return (
+    <RNText
+      style={[
+        fontStyle,
+        style,
+        { color: color || colors.textColor },
+        weight && { fontWeight: weight },
+      ]}
+    >
+      {children}
+    </RNText>
+  );
 };
+
+Text.propTypes = {
+  type: PropTypes.string.isRequired,
+  color: PropTypes.string,
+  weight: PropTypes.string,
+  style: PropTypes.object,
+};
+
+export default Text;

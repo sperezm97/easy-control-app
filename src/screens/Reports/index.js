@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import UnderConstruction from '../../component/UnderConstruction';
+import { View } from '../../component';
 
 const Reports = () => {
   return (
-    <View>
-      <Text>Reports</Text>
+    <View center>
+      <UnderConstruction>Report Screen is not available yet</UnderConstruction>
     </View>
   );
 };

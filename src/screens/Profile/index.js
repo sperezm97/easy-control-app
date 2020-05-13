@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import UnderConstruction from '../../component/UnderConstruction';
+import { View } from '../../component';
 
 const Profile = () => {
   return (
-    <View>
-      <Text>Profile</Text>
+    <View center>
+      <UnderConstruction>Profile Screen is not available yet</UnderConstruction>
     </View>
   );
 };

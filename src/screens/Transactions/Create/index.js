@@ -1,12 +1,99 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { StyleSheet, Alert } from 'react-native';
+import { Formik } from 'formik';
+import { useSelector, useDispatch } from 'react-redux';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { useNavigation, StackActions } from '@react-navigation/native';
+import WithDismissBottomBar from '../../../hooks/WithDismissBottomBar';
+import { Picker, Input, Header, View, Button } from '../../../component';
+import { colors, layout } from '../../../styles';
+import { getTransactionType, getCategories } from '../../../store/options/selectors';
+
+const styles = StyleSheet.create({
+  main: {
+    flex: 1,
+    backgroundColor: colors.white,
+  },
+  container: {
+    margin: layout.spacingLg,
+  },
+});
 
 const TransactionsCreate = () => {
+  const dispatch = useDispatch();
+  const navigation = useNavigation();
+  const transactionType = useSelector(getTransactionType);
+  const categories = useSelector(getCategories);
+
+  const valideEmptyFields = values =>
+    values.description.length &&
+    values.transactionTypeId.length &&
+    values.categoryId.length &&
+    values.price.length;
+
+  const createTransaction = values => {
+    if (valideEmptyFields(values)) {
+      dispatch({ type: 'transactions/create', values });
+      navigation.dispatch(StackActions.pop());
+    } else {
+      Alert.alert('Oops', 'Complete all fields!');
+    }
+  };
+
   return (
-    <View>
-      <Text>Create</Text>
+    <View style={styles.main}>
+      <Header titleName="Add Transactions" />
+      <View style={styles.container}>
+        <KeyboardAwareScrollView>
+          <Formik
+            initialValues={{
+              description: '',
+              transactionTypeId: '',
+              categoryId: '',
+              price: '',
+            }}
+            onSubmit={createTransaction}
+          >
+            {({ handleChange, handleSubmit, values }) => (
+              <>
+                <Input
+                  label="Description"
+                  placeholder="Type a description"
+                  value={values.description}
+                  keyboardType="default"
+                  onValueChange={handleChange('description')}
+                />
+                <Picker
+                  label="Transaction Type"
+                  placeholder="Select a transaction type"
+                  value={values.transactionTypeId}
+                  onValueChange={handleChange('transactionTypeId')}
+                  items={transactionType}
+                />
+                <Input
+                  label="Price"
+                  placeholder="Type a price"
+                  value={values.price}
+                  keyboardType="numeric"
+                  onValueChange={handleChange('price')}
+                />
+                <Picker
+                  label="Category"
+                  placeholder="Select a category"
+                  value={values.categoryId}
+                  onValueChange={handleChange('categoryId')}
+                  items={categories}
+                />
+                <View>
+                  <Button onPress={handleSubmit}>Save</Button>
+                </View>
+              </>
+            )}
+          </Formik>
+        </KeyboardAwareScrollView>
+      </View>
     </View>
   );
 };
 
-export default TransactionsCreate;
+export default WithDismissBottomBar(TransactionsCreate);

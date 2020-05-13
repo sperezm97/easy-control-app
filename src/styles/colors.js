@@ -9,13 +9,13 @@ export default {
 
   grey: '#BDBDBD',
   greyLight: '#f5f5f5',
-  greyDark: '#757575 ',
+  greyDark: '#757575',
 
-  textColor: '#212121',
+  textColor: '#565C71',
 
   danger: '#cc0000',
-  success: '#ff8800',
-  caution: '#007e33',
+  success: '#007e33',
+  caution: '#ff8800',
 
   white: '#fff',
   black: '#000',
