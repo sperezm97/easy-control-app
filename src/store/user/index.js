@@ -15,7 +15,7 @@ const user = createSlice({
     },
 
     updateActiveAccount: (state, action) => {
-      state.data.activeAccountId = action.payload;
+      state.data.activeAccountId = action.payload.id;
     },
   },
 });

@@ -4,7 +4,6 @@ import { formatDataFromFb, fbDateTime } from '../../utils';
 import { getActiveAccountId, getUserId } from '../user/selectors';
 
 function* fetchTransactions() {
-  yield take(['user/setData', 'accounts/setActiveAccountData']);
   try {
     const userId = yield select(getUserId);
     const actualAccountId = yield select(getActiveAccountId);

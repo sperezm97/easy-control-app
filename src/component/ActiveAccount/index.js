@@ -23,7 +23,7 @@ const ActiveAccount = () => {
           </View>
           <View style={styles.containerAccount}>
             <Text type="body">Actual Account</Text>
-            <Text type="bodyBold">{activeAccount.name}</Text>
+            <Text type="bodyBold">{activeAccount?.name}</Text>
           </View>
         </View>
         <View>

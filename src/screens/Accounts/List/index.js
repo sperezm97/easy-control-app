@@ -20,8 +20,8 @@ const AccountsList = () => {
   const accounts = useSelector(getAllAccounts);
   const dispatch = useDispatch();
 
-  const onSelect = accountId => {
-    dispatch({ type: 'user/putActiveAccount', payload: accountId });
+  const onSelect = id => {
+    dispatch({ type: 'user/putActiveAccount', id });
   };
 
   const onOpenModal = () => navigation.dispatch(StackActions.push('AccountsCreate'));

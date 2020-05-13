@@ -16,7 +16,7 @@ function* fetchUser(payload) {
 function* updateActiveAccount(payload) {
   const userId = yield select(getUserId);
   try {
-    yield call(userServices.update, userId, { active_account_id: payload });
+    yield call(userServices.update, userId, { active_account_id: payload.id });
     yield put({ type: 'user/updateActiveAccount', payload });
   } catch (error) {
     console.log(error);
