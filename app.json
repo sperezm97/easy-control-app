@@ -1,13 +1,9 @@
 {
   "expo": {
     "name": "EasyControlApp",
-    "slug": "EasyControlApp",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
-    "version": "1.0.0",
+    "slug": "easy-control",
+    "platforms": ["ios", "android", "web"],
+    "version": "0.1.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -18,11 +14,15 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "buildNumber": "1.0.0",
+      "bundleIdentifier": "com.spm.EasyControl",
+      "supportsTablet": false
+    },
+    "android": {
+      "package": "com.spm.EasyControl",
+      "versionCode": 1
     }
   }
 }
