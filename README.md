@@ -7,9 +7,11 @@
 1- `git clone https://github.com/sperezm97/easy-control-app.git && cd easy-control-app`  
 2- Run`npm install`  
 3- Make a issue and assigned to @sperezm97 to have access to firebase.  
-> put your email account on the issue
+> Put your email account on the issue. 
+
 4- Copy .env.example to .env  
-> You can use your expo account to develop on local.
+> You can use your expo account to develop on local.  
+
 5- Copy firebase stuff to .env  
 6- Run `npm start`
 
