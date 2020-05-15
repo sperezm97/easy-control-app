@@ -1,21 +1,55 @@
-# Easy Control App [![supports iOS](https://img.shields.io/badge/iOS-4630EB.svg?style=for-the-badge&logo=APPLE&labelColor=000&logoColor=fff)](https://github.com/expo/expo) [![supports Android](https://img.shields.io/badge/Android-4630EB.svg?style=for-the-badge&logo=ANDROID&labelColor=000&logoColor=fff)](https://github.com/expo/expo)
+<h1 align="center">Easy Control App</h1>
+<h3 align="center">Open source app to help people with money management</h3>
 
-> Open source app to people that want to have good money management.
+<br />
 
-## Project Setup
+<p align="center">
+  <a href="https://apps.apple.com">
+    <img alt="app-store" src="./app-store.png" />
+  </a>
+  <a href="https://play.google.com">
+    <img alt="google-play" src="./play-store.png" />
+  </a>
+</p>
 
-1- `git clone https://github.com/sperezm97/easy-control-app.git && cd easy-control-app`  
-2- Run`npm install`  
-3- Make a issue and assigned to @sperezm97 to have access to firebase.  
-> Put your email account on the issue. 
+<p align="center"> 
+  <img alt="screenshot" src="./app-preview.jpeg" />
+</p>
 
-4- Copy .env.example to .env  
-> You can use your expo account to develop on local.  
+Repository for the Easy Control React Native application, built with Expo, Redux Toolkit and Firebase.
 
-5- Copy firebase stuff to .env  
-6- Run `npm start`
+<br />
 
-## Development stack
+### 📦 Getting started
+
+Installing Dependencies:
+
+```sh
+$ npm install
+```
+
+Make an issue and assign it to @sperezm97 if you want access to Firebase. Write your email on the issue. 
+
+Running the app:
+
+```sh
+$ npm start
+```
+
+For starting the app on a specfic OS:
+
+```sh
+$ npm run ios | npm run android
+```
+
+Copy the env file and fill the secrets with yours
+```
+$ cp .env.example .env
+```
+
+<br />
+
+## Technology stack
 
 - Expo
 - React Navigation v5
