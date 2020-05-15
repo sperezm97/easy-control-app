@@ -5,15 +5,15 @@
 
 <p align="center">
   <a href="https://apps.apple.com">
-    <img alt="app-store" src="./app-store.png" />
+    <img alt="app-store" src="./docs/images/app-store.png" />
   </a>
   <a href="https://play.google.com">
-    <img alt="google-play" src="./play-store.png" />
+    <img alt="google-play" src="./docs/images/play-store.png" />
   </a>
 </p>
 
 <p align="center"> 
-  <img alt="screenshot" src="./app-preview.jpeg" />
+  <img alt="screenshot" src="./docs/images/app-preview.jpeg" />
 </p>
 
 Repository for the Easy Control React Native application, built with Expo, Redux Toolkit and Firebase.
