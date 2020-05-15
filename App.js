@@ -1,9 +1,9 @@
 /* eslint-disable global-require */
-import React, { useEffect } from 'react';
+import React from 'react';
 import './src/config/firebase';
 import { useFonts } from '@use-expo/font';
 import { AppLoading } from 'expo';
-import { SafeAreaView, StatusBar, YellowBox, AsyncStorage } from 'react-native';
+import { SafeAreaView, StatusBar, YellowBox } from 'react-native';
 import { Provider } from 'react-redux';
 import AppNavigator from './src/navigation';
 import { colors, layout } from './src/styles';

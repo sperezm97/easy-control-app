@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
   },
   input: {
     ...fonts.body,
+    color: colors.textColor,
   },
   iconContainer: {
     marginRight: layout.spacingMd,
