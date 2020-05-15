@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
 });
 
 const Input = props => {
-  const { label, placeholder, value, onValueChange, keyboardType } = props;
+  const { label, placeholder, value, onValueChange, ...rest } = props;
   return (
     <View style={styles.container}>
       <Text type="headLine" style={styles.label}>
@@ -39,9 +39,9 @@ const Input = props => {
           placeholder={placeholder}
           placeholderTextColor={colors.grey}
           value={value}
-          keyboardType={keyboardType}
           onChangeText={onValueChange}
           style={styles.input}
+          {...rest}
         />
       </View>
     </View>
