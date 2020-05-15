@@ -20,7 +20,7 @@ module.exports = {
   rules: {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'import/no-extraneous-dependencies': [
-      'error',
+      0,
       { devDependencies: true, optionalDependencies: false, peerDependencies: false },
     ],
     'import/no-namespace': 0,
