@@ -51,16 +51,16 @@ const AccountsCreate = () => {
           >
             {({ handleChange, handleSubmit, values }) => (
               <>
+                <SelectAccountType
+                  value={values.typeAccountId}
+                  onValueChange={handleChange('typeAccountId')}
+                />
                 <Input
                   label="Name"
                   placeholder="e.g Food"
                   value={values.name}
                   keyboardType="default"
                   onValueChange={handleChange('name')}
-                />
-                <SelectAccountType
-                  value={values.typeAccountId}
-                  onValueChange={handleChange('typeAccountId')}
                 />
                 {/* <Picker
                   label="Account Type"
