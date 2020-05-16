@@ -8,6 +8,7 @@ import WithDismissBottomBar from '../../../hooks/WithDismissBottomBar';
 import { Picker, Input, Header, View, Button } from '../../../component';
 import { colors, layout } from '../../../styles';
 import { getTransactionType, getCategories } from '../../../store/options/selectors';
+import { isOnlyNumbers } from '../../../utils';
 
 const styles = StyleSheet.create({
   main: {
@@ -29,7 +30,7 @@ const TransactionsCreate = () => {
     values.description.trim().length &&
     values.transactionTypeId.length &&
     values.categoryId.length &&
-    values.price.test('/^d+$/');
+    isOnlyNumbers(values.price);
 
   const createTransaction = values => {
     if (valideEmptyFields(values)) {

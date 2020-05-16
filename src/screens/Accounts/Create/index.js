@@ -8,6 +8,7 @@ import WithDismissBottomBar from '../../../hooks/WithDismissBottomBar';
 import { Picker, Input, Header, View, Button } from '../../../component';
 import { colors, layout } from '../../../styles';
 import { getAccountType } from '../../../store/options/selectors';
+import { isOnlyNumbers } from '../../../utils';
 
 const styles = StyleSheet.create({
   main: {
@@ -25,7 +26,7 @@ const AccountsCreate = () => {
   const accountype = useSelector(getAccountType);
 
   const valideEmptyFields = values =>
-    values.name.trim().length && values.typeAccountId.length && values.totalAmount.test('/^d+$/');
+    values.name.trim().length && values.typeAccountId && isOnlyNumbers(values.totalAmount);
 
   const createTransaction = values => {
     if (valideEmptyFields(values)) {

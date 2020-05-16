@@ -56,7 +56,7 @@ ListItem.propTypes = {
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   onPress: PropTypes.func.isRequired,
-  totalAmount: PropTypes.string.isRequired,
+  totalAmount: PropTypes.number.isRequired,
 };
 
 export default ListItem;
