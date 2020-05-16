@@ -5,6 +5,8 @@ import View from './Layout/View';
 import Header from './Layout/Header';
 import Button from './Layout/Button';
 import Image from './Layout/Image';
+import FileInvoice from '../../assets/images/file-invoice-dollar-solid.svg';
+import HandHolding from '../../assets/images/hand-holding-usd-solid.svg';
 
 import FloatingButton from './Layout/FloatingButton';
 
@@ -33,4 +35,6 @@ export {
   Button,
   UnderConstruction,
   Image,
+  FileInvoice,
+  HandHolding,
 };

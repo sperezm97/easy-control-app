@@ -2,13 +2,13 @@ import React from 'react';
 import { StyleSheet, Alert } from 'react-native';
 import { Formik } from 'formik';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigation, StackActions } from '@react-navigation/native';
 import WithDismissBottomBar from '../../../hooks/WithDismissBottomBar';
-import { Picker, Input, Header, View, Button } from '../../../component';
+import { Input, Header, View, Button } from '../../../component';
 import { colors, layout } from '../../../styles';
-import { getAccountType } from '../../../store/options/selectors';
 import { isOnlyNumbers } from '../../../utils';
+import SelectAccountType from './SelectAccountType';
 
 const styles = StyleSheet.create({
   main: {
@@ -23,7 +23,6 @@ const styles = StyleSheet.create({
 const AccountsCreate = () => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
-  const accountype = useSelector(getAccountType);
 
   const valideEmptyFields = values =>
     values.name.trim().length && values.typeAccountId && isOnlyNumbers(values.totalAmount);
@@ -45,7 +44,7 @@ const AccountsCreate = () => {
           <Formik
             initialValues={{
               name: '',
-              typeAccountId: '',
+              typeAccountId: 'g4DNSM58PaRA5VR178hy',
               totalAmount: '',
             }}
             onSubmit={createTransaction}
@@ -54,18 +53,22 @@ const AccountsCreate = () => {
               <>
                 <Input
                   label="Name"
-                  placeholder="Type an account name"
+                  placeholder="e.g Food"
                   value={values.name}
                   keyboardType="default"
                   onValueChange={handleChange('name')}
                 />
-                <Picker
+                <SelectAccountType
+                  value={values.typeAccountId}
+                  onValueChange={handleChange('typeAccountId')}
+                />
+                {/* <Picker
                   label="Account Type"
                   placeholder="Select an account type"
                   value={values.typeAccountId}
                   onValueChange={handleChange('typeAccountId')}
                   items={accountype}
-                />
+                /> */}
                 <Input
                   label="Total Amount"
                   placeholder="Type an initial budget"
