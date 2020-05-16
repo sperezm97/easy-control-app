@@ -71,7 +71,7 @@ const AccountsCreate = () => {
                 /> */}
                 <Input
                   label="Total Amount"
-                  placeholder="Type an initial budget"
+                  placeholder="e.g. $3,000.00"
                   value={values.totalAmount}
                   keyboardType="number-pad"
                   onValueChange={handleChange('totalAmount')}
