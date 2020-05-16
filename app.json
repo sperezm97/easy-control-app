@@ -3,7 +3,7 @@
     "name": "EasyControlApp",
     "slug": "easy-control",
     "platforms": ["ios", "android", "web"],
-    "version": "0.1.0",
+    "version": "0.1.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -16,13 +16,13 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "buildNumber": "1.0.0",
+      "buildNumber": "2",
       "bundleIdentifier": "com.spm.EasyControl",
       "supportsTablet": false
     },
     "android": {
       "package": "com.spm.EasyControl",
-      "versionCode": 1
+      "versionCode": 2
     }
   }
 }

@@ -54,7 +54,6 @@ const RootNavigator = () => {
     return <></>;
   }
 
-  console.log(first);
   return (
     <Tab.Navigator
       initialRouteName={first ? 'Transactions' : 'Accounts'}
