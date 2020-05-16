@@ -5,7 +5,7 @@ import { useFonts } from '@use-expo/font';
 import { AppLoading } from 'expo';
 import { SafeAreaView, StatusBar, YellowBox } from 'react-native';
 import { Provider } from 'react-redux';
-import AppNavigator from './src/navigation';
+import AppNavigator from './src';
 import { colors, layout } from './src/styles';
 import store from './src/store';
 
