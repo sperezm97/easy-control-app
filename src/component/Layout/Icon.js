@@ -1,5 +1,10 @@
 import React from 'react';
-import { MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
+import {
+  MaterialIcons,
+  MaterialCommunityIcons,
+  FontAwesome,
+  FontAwesome5,
+} from '@expo/vector-icons';
 import { colors } from '../../styles';
 
 export default {
@@ -28,6 +33,8 @@ export default {
   Account: props => (
     <MaterialIcons {...props} name="account-balance-wallet" size={36} color={colors.black} />
   ),
+
+  FontAwesome: props => <FontAwesome5 {...props} />,
 
   // Bottom Taps Icons
   TransactionList: props => <MaterialIcons {...props} name="view-list" size={36} />,

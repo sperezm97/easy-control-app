@@ -10,13 +10,13 @@ const View = props => {
   return (
     <RNView
       style={[
-        style,
         flex && globalStyles.flex,
         row && globalStyles.row,
         column && globalStyles.column,
         center && globalStyles.center,
         between && globalStyles.between,
         debug && { borderWidth: 2, borderColor: colors.danger },
+        style,
       ]}
     >
       {children}
