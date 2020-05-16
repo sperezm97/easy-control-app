@@ -25,7 +25,7 @@ const AccountsCreate = () => {
   const accountype = useSelector(getAccountType);
 
   const valideEmptyFields = values =>
-    values.name.length && values.typeAccountId.length && values.totalAmount.length;
+    values.name.trim().length && values.typeAccountId.length && values.totalAmount.test('/^d+$/');
 
   const createTransaction = values => {
     if (valideEmptyFields(values)) {
@@ -69,7 +69,7 @@ const AccountsCreate = () => {
                   label="Total Amount"
                   placeholder="Type an initial budget"
                   value={values.totalAmount}
-                  keyboardType="numeric"
+                  keyboardType="number-pad"
                   onValueChange={handleChange('totalAmount')}
                 />
                 <View>

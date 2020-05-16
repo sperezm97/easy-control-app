@@ -26,10 +26,10 @@ const TransactionsCreate = () => {
   const categories = useSelector(getCategories);
 
   const valideEmptyFields = values =>
-    values.description.length &&
+    values.description.trim().length &&
     values.transactionTypeId.length &&
     values.categoryId.length &&
-    values.price.length;
+    values.price.test('/^d+$/');
 
   const createTransaction = values => {
     if (valideEmptyFields(values)) {

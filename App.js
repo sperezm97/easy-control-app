@@ -1,12 +1,12 @@
 /* eslint-disable global-require */
-import React, { useEffect } from 'react';
+import React from 'react';
 import './src/config/firebase';
 import { useFonts } from '@use-expo/font';
 import { AppLoading } from 'expo';
-import { SafeAreaView, StatusBar, YellowBox, AsyncStorage } from 'react-native';
+import { SafeAreaView, StatusBar, YellowBox } from 'react-native';
 import { Provider } from 'react-redux';
-import AppNavigator from './src/navigation';
-import { colors } from './src/styles';
+import AppNavigator from './src';
+import { colors, layout } from './src/styles';
 import store from './src/store';
 
 const style = {
@@ -36,7 +36,7 @@ export default function App() {
 
   return (
     <SafeAreaView style={style.container}>
-      <StatusBar barStyle="default" />
+      <StatusBar barStyle={layout.isiOS ? 'dark-content' : 'default'} />
       <Provider store={store}>
         <AppNavigator />
       </Provider>

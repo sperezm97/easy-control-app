@@ -9,12 +9,10 @@ const styles = StyleSheet.create({
   },
 });
 
-const BlankState = () => {
-  return (
-    <View center style={styles.container}>
-      <Text type="body">Not accounts founded</Text>
-    </View>
-  );
-};
+const BlankState = () => (
+  <View center style={styles.container}>
+    <Text type="body">Not accounts found</Text>
+  </View>
+);
 
 export default BlankState;

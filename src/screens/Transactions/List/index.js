@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, AsyncStorage } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { useNavigation, StackActions } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 import { ActiveAccount, View, Card, List, FloatingButton } from '../../../component';
@@ -23,22 +23,6 @@ const TransactionsList = () => {
   const actualAccount = useSelector(getActiveAccountId);
 
   useEffect(() => {
-    (async () => {
-      const userId = await AsyncStorage.getItem('user');
-      if (userId) {
-        dispatch({ type: 'user/fetch', userId });
-      } else {
-        dispatch({ type: 'user/create' });
-      }
-    })();
-  }, []);
-
-  useEffect(() => {
-    // dispatch({ type: 'user/fetch' });
-    dispatch({ type: 'options/fetch' });
-  }, []);
-
-  useEffect(() => {
     dispatch({ type: 'accounts/fetch' });
   }, []);
 
@@ -57,7 +41,6 @@ const TransactionsList = () => {
       <>
         <ActiveAccount />
         <Card type="container">
-          {/* {renderHeader()} */}
           <List data={transactions} renderItem={renderItem} empty={renderEmpty} />
         </Card>
       </>

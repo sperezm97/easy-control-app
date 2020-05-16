@@ -1,9 +1,7 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { View, Text, Button } from '../../../component';
+import { View, Text } from '../../../component';
 import { layout } from '../../../styles';
-import { useSelector } from 'react-redux';
-import { getEmptyTransactions } from '../../../store/transactions/selectors';
 
 const styles = StyleSheet.create({
   container: {
@@ -11,12 +9,10 @@ const styles = StyleSheet.create({
   },
 });
 
-const BlankState = () => {
-  return (
-    <View center style={styles.container}>
-      <Text type="body">Not transactions founded</Text>
-    </View>
-  );
-};
+const BlankState = () => (
+  <View center style={styles.container}>
+    <Text type="body">Not transactions found</Text>
+  </View>
+);
 
 export default BlankState;

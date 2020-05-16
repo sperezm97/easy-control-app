@@ -23,6 +23,9 @@ const styles = StyleSheet.create({
     fontFamily: 'Roboto-Bold',
     textAlign: 'right',
   },
+  text: {
+    width: 200,
+  },
 });
 
 const ListItem = props => {
@@ -41,7 +44,9 @@ const ListItem = props => {
           </Text>
         </View>
         <View style={styles.item}>
-          <Text type="body">{description}</Text>
+          <Text type="body" numberOfLines={1} ellipsizeMode="tail" style={styles.text}>
+            {description}
+          </Text>
           <Text type="overline" color={colors.grey}>
             {category}
           </Text>

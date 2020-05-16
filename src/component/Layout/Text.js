@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { fonts, colors } from '../../styles';
 
 const Text = props => {
-  const { type, color, children, weight, style } = props;
+  const { type, color, children, weight, style, ...rest } = props;
   const fontStyle = fonts[type];
   return (
     <RNText
@@ -16,6 +16,7 @@ const Text = props => {
         { color: color || colors.textColor },
         weight && { fontWeight: weight },
       ]}
+      {...rest}
     >
       {children}
     </RNText>
