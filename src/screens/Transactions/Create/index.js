@@ -67,13 +67,6 @@ const TransactionsCreate = () => {
                   value={values.transactionTypeId}
                   onValueChange={handleChange('transactionTypeId')}
                 />
-                {/* <Picker
-                  label="Transaction Type"
-                  placeholder="Select a transaction type"
-                  value={values.transactionTypeId}
-                  onValueChange={handleChange('transactionTypeId')}
-                  items={transactionType}
-                /> */}
                 <Input
                   label="Price"
                   placeholder="e.g. $5,000.00"

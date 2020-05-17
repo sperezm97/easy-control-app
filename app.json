@@ -3,7 +3,7 @@
     "name": "EasyControlApp",
     "slug": "easy-control",
     "platforms": ["ios", "android", "web"],
-    "version": "0.1.2",
+    "version": "0.2.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -16,13 +16,13 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "buildNumber": "3",
+      "buildNumber": "4",
       "bundleIdentifier": "com.spm.EasyControl",
       "supportsTablet": false
     },
     "android": {
       "package": "com.spm.EasyControl",
-      "versionCode": 3
+      "versionCode": 4
     },
     "packagerOpts": {
       "config": "metro.config.js",
