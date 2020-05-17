@@ -23,3 +23,5 @@ export const convertDate = object => {
 };
 
 export const fbDateTime = () => firebase.firestore.Timestamp.now();
+
+export const isOnlyNumbers = value => /^\d+$/.test(value);

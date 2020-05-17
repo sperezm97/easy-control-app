@@ -18,6 +18,7 @@ const List = props => {
       onRefresh={onRefresh}
       scrollEnabled={data.length > 4}
       bounces
+      {...props}
     />
   );
 };

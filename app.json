@@ -1,13 +1,9 @@
 {
   "expo": {
     "name": "EasyControlApp",
-    "slug": "EasyControlApp",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
-    "version": "1.0.0",
+    "slug": "easy-control",
+    "platforms": ["ios", "android", "web"],
+    "version": "0.2.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -18,11 +14,31 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "buildNumber": "4",
+      "bundleIdentifier": "com.spm.EasyControl",
+      "supportsTablet": false
+    },
+    "android": {
+      "package": "com.spm.EasyControl",
+      "versionCode": 4
+    },
+    "packagerOpts": {
+      "config": "metro.config.js",
+      "sourceExts": [
+        "expo.ts",
+        "expo.tsx",
+        "expo.js",
+        "expo.jsx",
+        "ts",
+        "tsx",
+        "js",
+        "jsx",
+        "json",
+        "wasm",
+        "svg"
+      ]
     }
   }
 }
