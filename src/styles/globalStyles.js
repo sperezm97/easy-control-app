@@ -1,4 +1,6 @@
 import { StyleSheet } from 'react-native';
+import layout from './layout';
+import colors from './colors';
 
 export default StyleSheet.create({
   flex: {
@@ -16,5 +18,13 @@ export default StyleSheet.create({
   },
   between: {
     justifyContent: 'space-between',
+  },
+  container: {
+    marginHorizontal: layout.spacingXlg,
+    marginVertical: layout.spacingXXl,
+  },
+  debug: {
+    borderWidth: 2,
+    borderColor: colors.danger,
   },
 });

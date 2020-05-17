@@ -9,6 +9,7 @@ import { Picker, Input, Header, View, Button } from '../../../component';
 import { colors, layout } from '../../../styles';
 import { getTransactionType, getCategories } from '../../../store/options/selectors';
 import { isOnlyNumbers } from '../../../utils';
+import InputCategory from './inputCategory';
 
 const styles = StyleSheet.create({
   main: {
@@ -24,7 +25,6 @@ const TransactionsCreate = () => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
   const transactionType = useSelector(getTransactionType);
-  const categories = useSelector(getCategories);
 
   const valideEmptyFields = values =>
     values.description.trim().length &&
@@ -43,7 +43,7 @@ const TransactionsCreate = () => {
 
   return (
     <View style={styles.main}>
-      <Header titleName="Add Transactions" />
+      <Header titleName="Add Transactions" iconName="Close" />
       <View style={styles.container}>
         <KeyboardAwareScrollView>
           <Formik
@@ -78,16 +78,11 @@ const TransactionsCreate = () => {
                   keyboardType="numeric"
                   onValueChange={handleChange('price')}
                 />
-                <Picker
-                  label="Category"
-                  placeholder="Select a category"
+                <InputCategory
                   value={values.categoryId}
-                  onValueChange={handleChange('categoryId')}
-                  items={categories}
+                  handleChange={handleChange('categoryId')}
                 />
-                <View>
-                  <Button onPress={handleSubmit}>Save</Button>
-                </View>
+                <Button onPress={handleSubmit}>Save</Button>
               </>
             )}
           </Formik>

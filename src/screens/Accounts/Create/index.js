@@ -38,7 +38,7 @@ const AccountsCreate = () => {
 
   return (
     <View style={styles.main}>
-      <Header titleName="Add Account" />
+      <Header titleName="Add Account" iconName="Close" />
       <View style={styles.container}>
         <KeyboardAwareScrollView>
           <Formik
