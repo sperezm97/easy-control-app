@@ -8,11 +8,9 @@ export default Component => props => {
   useFocusEffect(
     useCallback(() => {
       const parent = dangerouslyGetParent();
-      if (parent) {
-        parent.setOptions({
-          tabBarVisible: false,
-        });
-      }
+      parent.setOptions({
+        tabBarVisible: false,
+      });
       return () => {
         if (parent) {
           parent.setOptions({ tabBarVisible: true });

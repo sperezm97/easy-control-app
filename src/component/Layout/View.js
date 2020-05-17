@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { globalStyles, colors } from '../../styles';
 
 const View = props => {
-  const { children, row, column, style, center, between, flex, debug } = props;
+  const { children, row, column, style, center, between, flex, debug, container } = props;
   return (
     <RNView
       style={[
@@ -15,7 +15,8 @@ const View = props => {
         column && globalStyles.column,
         center && globalStyles.center,
         between && globalStyles.between,
-        debug && { borderWidth: 2, borderColor: colors.danger },
+        debug && globalStyles.debug,
+        container && globalStyles.container,
         style,
       ]}
     >
@@ -32,6 +33,7 @@ View.propTypes = {
   between: PropTypes.bool,
   flex: PropTypes.bool,
   debug: PropTypes.bool,
+  container: PropTypes.bool,
 };
 
 export default View;

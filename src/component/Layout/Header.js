@@ -19,15 +19,16 @@ const styles = StyleSheet.create({
 });
 
 const Header = props => {
-  const { titleName } = props;
+  const { titleName, iconName } = props;
   const navigation = useNavigation();
 
   const onClose = () => navigation.dispatch(StackActions.pop());
 
+  const IconType = Icon[iconName];
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={onClose}>
-        <Icon.Close />
+        <IconType />
       </TouchableOpacity>
       <View style={styles.containerName}>
         <Text type="headLine">{titleName}</Text>
@@ -38,6 +39,7 @@ const Header = props => {
 
 Header.propTypes = {
   titleName: PropTypes.string.isRequired,
+  iconName: PropTypes.string.isRequired,
 };
 
 export default Header;
