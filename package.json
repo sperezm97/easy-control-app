@@ -8,9 +8,9 @@
     "eject": "expo eject",
     "test": "jest . --collectCoverage --passWithNoTests",
     "test:update": "jest -u ",
-    "build:apk": "expo build:android -t apk",
-    "build:aab": "expo build:android -t app-bundle",
-    "build:ios": "expo build:ios"
+    "build:apk": "npx expo build:android -t apk",
+    "build:aab": "npx expo build:android -t app-bundle",
+    "build:ios": "npx expo build:ios"
   },
   "dependencies": {
     "@expo/vector-icons": "^10.2.0",

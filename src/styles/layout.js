@@ -20,8 +20,8 @@ export default {
       height: 1,
     },
     shadowOpacity: 0.2,
-    shadowRadius: 3,
-    elevation: 4,
+    shadowRadius: 6,
+    elevation: 6,
   },
 
   isAndroid: Platform.OS == 'android',
