@@ -7,6 +7,7 @@ import {
   FIREBASE_MESSAGING_SENDER_ID,
   FIREBASE_APP_ID,
   FIREBASE_MEASUREMENT_ID,
+  SENTRY_DSN,
 } from 'react-native-dotenv';
 
 export default {
@@ -18,4 +19,5 @@ export default {
   messagingSenderId: FIREBASE_MESSAGING_SENDER_ID,
   appId: FIREBASE_APP_ID,
   measurementId: FIREBASE_MEASUREMENT_ID,
+  sentryDns: SENTRY_DSN,
 };

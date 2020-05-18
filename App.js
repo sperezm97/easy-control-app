@@ -1,6 +1,7 @@
 /* eslint-disable global-require */
 import React from 'react';
 import './src/config/firebase';
+import './src/config/sentry';
 import { useFonts } from '@use-expo/font';
 import { AppLoading } from 'expo';
 import { SafeAreaView, StatusBar, YellowBox } from 'react-native';
