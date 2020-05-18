@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigation } from '@react-navigation/native';
-import { useSelector } from 'react-redux';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { AsyncStorage } from 'react-native';
 import AccountsNavigator from './AccountsNavigator';
@@ -10,15 +8,14 @@ import TransactionsNavigator from './TransactionNavigator';
 import { Icon } from '../component';
 import { colors, fonts } from '../styles';
 import layout from '../styles/layout';
-import { getFirstUser } from '../store/common/selectors';
 
 const Tab = createBottomTabNavigator();
 
 const defaultOption = {
   activeTintColor: colors.primaryColor,
-  activeBackgroundColor: 'transparent',
+  activeBackgroundColor: colors.white,
   inactiveTintColor: colors.grey,
-  inactiveBackgroundColor: 'transparent',
+  inactiveBackgroundColor: colors.white,
   showLabel: true,
   showIcon: true,
   adaptive: true,
@@ -32,10 +29,6 @@ const defaultOption = {
   },
   style: {
     ...layout.boxShadow,
-    height: 60,
-    // backgroundColor: colors.black,
-    borderTopLeftRadius: 30,
-    borderTopRightRadius: 30,
   },
 };
 

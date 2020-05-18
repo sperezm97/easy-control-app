@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { TransactionsCreateScreen, TransactionsListScreen, CategoriesScreen } from '../screens';
+import { TransactionsCreateScreen, TransactionsListScreen } from '../screens';
 
 const TransactionsStack = createStackNavigator();
 
@@ -35,7 +35,6 @@ const TransactionsNavigator = () => (
         gestureDirection: 'vertical',
       }}
     />
-    <TransactionsStack.Screen name="Categories" component={CategoriesScreen} />
   </TransactionsStack.Navigator>
 );
 

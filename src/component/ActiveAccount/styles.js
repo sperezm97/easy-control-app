@@ -11,4 +11,7 @@ export default StyleSheet.create({
   totalText: {
     textAlign: 'right',
   },
+  actualAccountText: {
+    width: 200,
+  },
 });
