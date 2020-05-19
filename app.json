@@ -7,9 +7,8 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#1976D2"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
