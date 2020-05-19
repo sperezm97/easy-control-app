@@ -1,5 +1,6 @@
 /* eslint-disable global-require */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import * as SplashScreen from 'expo-splash-screen';
 import './src/config/firebase';
 import './src/config/sentry';
 import { useFonts } from '@use-expo/font';
@@ -19,6 +20,7 @@ const style = {
 YellowBox.ignoreWarnings(['Setting a timer']);
 
 export default function App() {
+  const [slashLoaded, setSlashLoaded] = useState(false);
   const [fontsLoaded] = useFonts({
     'Lora-Bold': require('./assets/fonts/Lora-Bold.ttf'),
     'Lora-Italic': require('./assets/fonts/Lora-Italic.ttf'),
@@ -31,7 +33,15 @@ export default function App() {
     'Roboto-Regular': require('./assets/fonts/Roboto-Regular.ttf'),
   });
 
-  if (!fontsLoaded) {
+  useEffect(() => {
+    (async () => {
+      await SplashScreen.preventAutoHideAsync();
+      await SplashScreen.hideAsync();
+      setSlashLoaded(true);
+    })();
+  }, []);
+
+  if (!fontsLoaded && !slashLoaded) {
     return <AppLoading />;
   }
 
