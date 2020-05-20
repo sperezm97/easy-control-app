@@ -8,4 +8,4 @@ Sentry.init({
   debug: !__DEV__,
 });
 
-Sentry.setRelease(Constants.manifest.revisionId);
+Sentry.setRelease(Constants.installationId);
