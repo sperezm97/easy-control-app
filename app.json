@@ -2,6 +2,7 @@
   "expo": {
     "name": "EasyControlApp",
     "slug": "easy-control",
+    "sdkVersion": "37.0.3",
     "platforms": ["ios", "android", "web"],
     "version": "0.2.1",
     "orientation": "portrait",
@@ -45,6 +46,7 @@
           "file": "sentry-expo/upload-sourcemaps"
         }
       ]
-    }
+    },
+    "entryPoint": "node_modules/expo/AppEntry.js"
   }
 }

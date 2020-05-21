@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>EXUpdatesSDKVersion</key>
+	<string>37.0.3</string>
+	<key>EXUpdatesURL</key>
+	<string>https://expo.io/@sperezm97/easy-control</string>
+</dict>
+</plist>
