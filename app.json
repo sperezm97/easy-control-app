@@ -2,11 +2,8 @@
   "expo": {
     "name": "EasyControlApp",
     "slug": "easy-control",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
+    "sdkVersion": "37.0.3",
+    "platforms": ["ios", "android", "web"],
     "version": "0.2.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -17,9 +14,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "buildNumber": "5",
       "bundleIdentifier": "com.spm.EasyControl",
