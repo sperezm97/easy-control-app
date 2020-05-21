@@ -16,7 +16,7 @@ const style = {
     backgroundColor: colors.white,
   },
 };
-YellowBox.ignoreWarnings(['Setting a timer']);
+console.ignoredYellowBox = ['Setting a timer'];
 
 export default function App() {
   const [slashLoaded, setSlashLoaded] = useState(false);
