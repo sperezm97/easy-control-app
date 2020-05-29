@@ -1,7 +1,8 @@
-import { takeLatest, call, put, select, delay, take } from 'redux-saga/effects';
+import { takeLatest, call, put, select } from 'redux-saga/effects';
 import { transactionService } from '../../services';
 import { formatDataFromFb, fbDateTime } from '../../utils';
 import { getActiveAccountId, getUserId } from '../user/selectors';
+import { setError } from '../common';
 
 function* fetchTransactions() {
   try {
@@ -14,7 +15,7 @@ function* fetchTransactions() {
       yield put({ type: 'transactions/setData', payload: data });
     }
   } catch (error) {
-    console.log(error);
+    yield put(setError(error));
   }
 }
 
@@ -37,7 +38,7 @@ function* createTransaction(payload) {
       payload: { id: trans.id, ...body, createdAt: fbDateTime(), updatedAt: fbDateTime() },
     });
   } catch (error) {
-    console.log(error);
+    yield put(setError(error));
   }
 }
 

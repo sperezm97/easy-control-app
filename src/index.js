@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { AsyncStorage } from 'react-native';
 import { useDispatch } from 'react-redux';
 import AppNavigator from './navigation';
+import ErrorAlert from './hooks/ErrorAlert';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -21,7 +22,12 @@ const App = () => {
     dispatch({ type: 'options/fetch' });
   }, []);
 
-  return <AppNavigator />;
+  return (
+    <>
+      <AppNavigator />
+      <ErrorAlert />
+    </>
+  );
 };
 
 export default App;

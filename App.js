@@ -4,11 +4,13 @@ import * as SplashScreen from 'expo-splash-screen';
 import './src/config/firebase';
 import './src/config/sentry';
 import { useFonts } from '@use-expo/font';
-import { SafeAreaView, StatusBar, YellowBox } from 'react-native';
+import { SafeAreaView, StatusBar } from 'react-native';
+import { ReduxNetworkProvider } from 'react-native-offline';
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 import AppNavigator from './src';
 import { colors, layout } from './src/styles';
-import store from './src/store';
+import { store, persistor } from './src/store';
 
 const style = {
   container: {
@@ -16,7 +18,8 @@ const style = {
     backgroundColor: colors.white,
   },
 };
-YellowBox.ignoreWarnings(['Setting a timer']);
+// eslint-disable-next-line no-console
+console.ignoredYellowBox = ['Setting a timer'];
 
 export default function App() {
   const [slashLoaded, setSlashLoaded] = useState(false);
@@ -47,8 +50,13 @@ export default function App() {
   return (
     <SafeAreaView style={style.container}>
       <StatusBar barStyle={layout.isiOS ? 'dark-content' : 'default'} />
+
       <Provider store={store}>
-        <AppNavigator />
+        <PersistGate loading={null} persistor={persistor}>
+          <ReduxNetworkProvider>
+            <AppNavigator />
+          </ReduxNetworkProvider>
+        </PersistGate>
       </Provider>
     </SafeAreaView>
   );

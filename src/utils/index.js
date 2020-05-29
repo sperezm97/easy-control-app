@@ -1,6 +1,6 @@
 import moment from 'moment';
 import accounting from 'accounting-js';
-import firebase from 'firebase';
+import { types } from '../config/firebase';
 
 export const formatObject = doc => ({
   id: doc.id,
@@ -18,10 +18,10 @@ export const formatPrice = value => accounting.formatMoney(value, '$', 2, ',', '
 export const unFormatMoney = value => accounting.unformat(value);
 
 export const convertDate = object => {
-  const fbDateTIme = object.toDate();
+  const fbDateTIme = object?.toDate();
   return moment(fbDateTIme).format('ll');
 };
 
-export const fbDateTime = () => firebase.firestore.Timestamp.now();
+export const fbDateTime = () => types.Timestamp.now();
 
 export const isOnlyNumbers = value => /^\d+$/.test(value);

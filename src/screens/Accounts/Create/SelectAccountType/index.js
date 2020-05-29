@@ -27,7 +27,7 @@ const index = props => {
               fill={isSelected(savingAccountId) ? colors.white : colors.primaryColor}
             />
             <Text
-              body="body"
+              type="body"
               color={isSelected(savingAccountId) ? colors.white : colors.primaryColor}
               style={[styles.titles, isSelected(savingAccountId) && styles.activeTitle]}
             >
@@ -35,7 +35,7 @@ const index = props => {
             </Text>
           </View>
         </TouchableOpacity>
-        <Text body="headline" style={styles.label}>
+        <Text type="headline" style={styles.label}>
           Or
         </Text>
         <TouchableOpacity
@@ -49,7 +49,7 @@ const index = props => {
               fill={isSelected(checkingAccount) ? colors.white : colors.primaryColor}
             />
             <Text
-              body="body"
+              type="body"
               color={isSelected(checkingAccount) ? colors.white : colors.primaryColor}
               style={[styles.titles, isSelected(checkingAccount) && styles.activeTitle]}
             >

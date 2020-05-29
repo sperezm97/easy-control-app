@@ -2,6 +2,7 @@ import { takeLatest, call, put, select, take } from 'redux-saga/effects';
 import { accountService } from '../../services';
 import { formatDataFromFb } from '../../utils';
 import { getActiveAccountId, getUserId } from '../user/selectors';
+import { setError } from '../common';
 
 function* fetchAccounts() {
   yield take('user/setData');
@@ -11,7 +12,7 @@ function* fetchAccounts() {
     yield put({ type: 'accounts/setData', payload: data });
     yield call(fetchActiveAccount);
   } catch (error) {
-    console.log(error);
+    yield put(setError(error));
   }
 }
 
@@ -20,7 +21,7 @@ function* fetchActiveAccount() {
     const activeAccountId = yield select(getActiveAccountId);
     yield put({ type: 'accounts/setActiveAccountData', payload: activeAccountId });
   } catch (error) {
-    console.log(error);
+    yield put(setError(error));
   }
 }
 
@@ -40,7 +41,7 @@ function* createAccount(payload) {
     const account = yield call(accountService.create, body);
     yield put({ type: 'accounts/setNewAccount', payload: { id: account.id, ...body } });
   } catch (error) {
-    console.log(error);
+    yield put(setError(error));
   }
 }
 

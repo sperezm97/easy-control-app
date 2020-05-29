@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  MaterialIcons,
-  MaterialCommunityIcons,
-  FontAwesome,
-  FontAwesome5,
-} from '@expo/vector-icons';
+import { MaterialIcons, MaterialCommunityIcons, FontAwesome5 } from '@expo/vector-icons';
 import { colors } from '../../styles';
 
 export default {
@@ -28,6 +23,10 @@ export default {
   Close: props => <MaterialIcons name="close" size={24} color={colors.black} {...props} />,
   Edit: props => <MaterialIcons name="edit" size={24} color={colors.black} {...props} />,
   Save: props => <MaterialIcons name="save" size={24} color={colors.black} {...props} />,
+
+  CircleClose: props => (
+    <MaterialCommunityIcons name="close-circle-outline" size={48} color={colors.white} {...props} />
+  ),
 
   UnCheck: props => (
     <MaterialCommunityIcons

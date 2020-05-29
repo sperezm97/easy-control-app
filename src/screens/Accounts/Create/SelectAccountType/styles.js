@@ -14,8 +14,8 @@ export default StyleSheet.create({
   },
   item: {
     ...globalStyles.center,
-    height: 90,
-    width: 100,
+    height: 100,
+    width: 120,
     padding: layout.spacingXlg,
     borderRadius: 20,
     backgroundColor: colors.white,

@@ -80,3 +80,7 @@ buck-out/
 # Expo
 .expo/*
 web-build/
+
+# Firebase
+google-services.json
+GoogleService-Info.plist

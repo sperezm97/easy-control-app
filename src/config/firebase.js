@@ -1,29 +1,10 @@
-import * as firebase from 'firebase';
-import env from './env';
+import firestore from '@react-native-firebase/firestore';
+import auth from '@react-native-firebase/auth';
+import func from '@react-native-firebase/functions';
+import stg from '@react-native-firebase/storage';
+import anl from '@react-native-firebase/analytics';
 
-import 'firebase/auth';
-import 'firebase/database';
-import 'firebase/firestore';
-import 'firebase/functions';
-import 'firebase/storage';
+const db = firestore();
+const types = firestore;
 
-const firebaseConfig = {
-  apiKey: env.apiKey,
-  authDomain: env.authDomain,
-  databaseURL: env.databaseURL,
-  projectId: env.projectId,
-  storageBucket: env.storageBucket,
-  messagingSenderId: env.messagingSenderId,
-  appId: env.appId,
-  measurementId: env.messagingSenderId,
-};
-
-const instance = firebase.initializeApp(firebaseConfig);
-instance.firestore().settings({
-  cacheSizeBytes: firebase.firestore.CACHE_SIZE_UNLIMITED,
-});
-
-const db = instance.firestore();
-
-export { db };
-export default instance;
+export { db, auth, func, stg, anl, types };
