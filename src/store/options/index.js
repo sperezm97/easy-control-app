@@ -1,9 +1,28 @@
+/* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  transactionTypes: [],
+  transactionTypes: [
+    {
+      id: 'ks25ee53mu6Ja4V6VKPl',
+      name: 'Expenses',
+    },
+    {
+      id: 'rXhNf8qWxQooVeaZJ1Tb',
+      name: 'Income',
+    },
+  ],
   categories: [],
-  accountTypes: [],
+  accountTypes: [
+    {
+      id: 'g4DNSM58PaRA5VR178hy',
+      name: 'Saving',
+    },
+    {
+      id: 'gKQeXPX5M3a590FF4NNn',
+      name: 'Checking',
+    },
+  ],
 };
 
 const options = createSlice({
@@ -19,7 +38,7 @@ const options = createSlice({
     setAccountTypes: (state, action) => {
       state.accountTypes = action.payload;
     },
-    clear: (state, action) => {
+    clear: state => {
       state.transactionTypes = [];
       state.categories = [];
       state.accountTypes = [];

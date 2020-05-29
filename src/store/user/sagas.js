@@ -1,15 +1,16 @@
 import { AsyncStorage } from 'react-native';
-import { takeLatest, call, put, select, take, fork } from 'redux-saga/effects';
+import { takeLatest, call, put, select } from 'redux-saga/effects';
 import { userServices } from '../../services';
 import { formatObject } from '../../utils';
 import { getUserId } from './selectors';
+import { setError } from '../common';
 
 function* fetchUser(payload) {
   try {
     const data = formatObject(yield call(userServices.fetchSingle, payload.userId));
     yield put({ type: 'user/setData', payload: data });
   } catch (error) {
-    console.log(error);
+    yield put(setError(error));
   }
 }
 
@@ -19,16 +20,12 @@ function* updateActiveAccount(payload) {
     yield call(userServices.update, userId, { active_account_id: payload.id });
     yield put({ type: 'user/updateActiveAccount', payload });
   } catch (error) {
-    console.log(error);
+    yield put(setError(error));
   }
 }
 
 async function setLocalUser(userId) {
-  try {
-    await AsyncStorage.setItem('user', userId.id);
-  } catch (error) {
-    console.log(error);
-  }
+  await AsyncStorage.setItem('user', userId.id);
 }
 
 function* createUser() {
@@ -48,7 +45,7 @@ function* createUser() {
     yield call(setLocalUser, newBody);
     yield put({ type: 'user/setData', payload: newBody });
   } catch (error) {
-    console.log(error);
+    yield put(setError(error));
   }
 }
 

@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import { View, Text } from '../../../component';
 import { layout, globalStyles, colors } from '../../../styles';
-import { formatPrice, convertDate } from '../../../utils';
+import { formatPrice } from '../../../utils';
 
 const styles = StyleSheet.create({
   container: {
@@ -32,8 +32,10 @@ const ListItem = props => {
   const { category, createdAt, description, price, transactionTypeId } = props;
   const firstCategoryLetter = category.charAt(0);
 
-  const getColorByTransactionType = () =>
-    transactionTypeId == 'rXhNf8qWxQooVeaZJ1Tb' ? colors.success : colors.danger;
+  const getColorByTransactionType = () => {
+    const incomeTransId = 'rXhNf8qWxQooVeaZJ1Tb';
+    return transactionTypeId == incomeTransId ? colors.success : colors.danger;
+  };
 
   return (
     <View row between style={styles.container} center>
@@ -65,13 +67,10 @@ const ListItem = props => {
 };
 
 ListItem.propTypes = {
-  accountId: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   createdAt: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   transactionTypeId: PropTypes.string.isRequired,
-  updatedAt: PropTypes.object.isRequired,
 };
 export default ListItem;

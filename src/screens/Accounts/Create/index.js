@@ -62,13 +62,6 @@ const AccountsCreate = () => {
                   keyboardType="default"
                   onValueChange={handleChange('name')}
                 />
-                {/* <Picker
-                  label="Account Type"
-                  placeholder="Select an account type"
-                  value={values.typeAccountId}
-                  onValueChange={handleChange('typeAccountId')}
-                  items={accountype}
-                /> */}
                 <Input
                   label="Total Amount"
                   placeholder="e.g. $3,000.00"

@@ -27,7 +27,8 @@ Text.propTypes = {
   type: PropTypes.string.isRequired,
   color: PropTypes.string,
   weight: PropTypes.string,
-  style: PropTypes.object,
+  children: PropTypes.element.isRequired,
+  style: PropTypes.object.isRequired,
 };
 
 export default Text;
