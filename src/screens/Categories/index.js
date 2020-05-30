@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { useRoute } from '@react-navigation/native';
+import { useRoute, useNavigation, StackActions } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 import { getCategories } from '../../store/options/selectors';
 import ListItem from './ListItem';
 import { View, Text, Header, List } from '../../component';
 
 const Categories = () => {
+  const navigation = useNavigation();
   const { handleChange } = useRoute().params;
   const [categoryId, setId] = useState('');
   const categories = useSelector(getCategories);
@@ -13,6 +14,7 @@ const Categories = () => {
   const onPressItem = id => {
     setId(id);
     handleChange(id);
+    navigation.dispatch(StackActions.pop());
   };
 
   const renderEmpty = () => (
@@ -21,8 +23,12 @@ const Categories = () => {
     </View>
   );
 
-  const renderItem = ({ item }) => (
-    <ListItem {...item} isSelect={categoryId == item.id} onPress={() => onPressItem(item.id)} />
+  const renderItem = object => (
+    <ListItem
+      {...object.item}
+      isSelect={categoryId == object.item.id}
+      onPress={() => onPressItem(object.Text.id)}
+    />
   );
 
   return (

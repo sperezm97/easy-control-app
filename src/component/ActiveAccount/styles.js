@@ -6,6 +6,7 @@ export default StyleSheet.create({
     marginLeft: layout.spacingNor,
   },
   containerCards: {
+    justifyContent: 'space-evenly',
     marginBottom: layout.spacingXlg,
   },
   totalText: {

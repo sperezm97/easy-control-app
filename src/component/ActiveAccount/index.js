@@ -6,8 +6,8 @@ import Text from '../Layout/Text';
 import View from '../Layout/View';
 import styles from './styles';
 import { colors } from '../../styles';
-import IncomeCard from '../IncomeCard';
-import ExpensesCard from '../ExpensesCard';
+import IncomeCard from './IncomeCard';
+import ExpensesCard from './ExpensesCard';
 import { getActiveAccount } from '../../store/accounts/selector';
 import { formatPrice } from '../../utils';
 
@@ -16,7 +16,7 @@ const ActiveAccount = () => {
   const value = activeAccount?.totalAmount || '';
   return (
     <>
-      <Card type="body">
+      <Card type="row">
         <View row>
           <View center>
             <Icon.Account />

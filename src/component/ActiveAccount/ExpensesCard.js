@@ -6,19 +6,19 @@ import { colors } from '../../styles';
 import { getActiveAccount } from '../../store/accounts/selector';
 import { formatPrice } from '../../utils';
 
-const IncomeCard = () => {
+const ExpensesCard = () => {
   const activeAccount = useSelector(getActiveAccount);
-  const value = activeAccount?.totalIncome || '';
+  const value = activeAccount?.totalExpenses || '';
   return (
-    <Card type="left">
+    <Card type="body">
       <Text type="body" color={colors.grey}>
-        Total Income
+        Total Expenses
       </Text>
-      <Text type="bodyBold" color={colors.success}>
+      <Text type="bodyBold" color={colors.danger}>
         {formatPrice(value)}
       </Text>
     </Card>
   );
 };
 
-export default IncomeCard;
+export default ExpensesCard;

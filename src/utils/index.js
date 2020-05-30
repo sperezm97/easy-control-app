@@ -17,11 +17,10 @@ export const formatPrice = value => accounting.formatMoney(value, '$', 2, ',', '
 
 export const unFormatMoney = value => accounting.unformat(value);
 
-export const convertDate = object => {
-  const fbDateTIme = object?.toDate();
-  return moment(fbDateTIme).format('ll');
-};
+export const convertDate = object => moment(object).format('ll');
 
 export const fbDateTime = () => types.Timestamp.now();
 
 export const isOnlyNumbers = value => /^\d+$/.test(value);
+
+export const convertFromProxy = state => JSON.parse(JSON.stringify(state));

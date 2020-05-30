@@ -46,7 +46,7 @@ export default function App() {
   if (!fontsLoaded && !slashLoaded) {
     return null;
   }
-
+  persistor.purge();
   return (
     <SafeAreaView style={style.container}>
       <StatusBar barStyle={layout.isiOS ? 'dark-content' : 'default'} />

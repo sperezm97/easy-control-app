@@ -1,18 +1,23 @@
 import { takeLatest, call, put, select } from 'redux-saga/effects';
-import { transactionService } from '../../services';
-import { formatDataFromFb, fbDateTime } from '../../utils';
-import { getActiveAccountId, getUserId } from '../user/selectors';
-import { setError } from '../common';
+import { transactionService } from '../../../services';
+import { formatDataFromFb, fbDateTime } from '../../../utils';
+import { getActiveAccountId, getUserId } from '../../user/selectors';
+import { setError } from '../../common';
+import MapperTrans from '../../../services/mappers/transaction';
+import * as actions from './index';
 
 function* fetchTransactions() {
   try {
     const userId = yield select(getUserId);
     const actualAccountId = yield select(getActiveAccountId);
     if (actualAccountId) {
-      const data = formatDataFromFb(
+      const formaData = formatDataFromFb(
         yield call(transactionService.fetchAll, userId, actualAccountId),
       );
-      yield put({ type: 'transactions/setData', payload: data });
+
+      const data = MapperTrans.fromFirestore(formaData);
+      const value = formaData.length ? data : [];
+      yield put(actions.setData(value));
     }
   } catch (error) {
     yield put(setError(error));
@@ -33,10 +38,14 @@ function* createTransaction(payload) {
       userId,
     };
     const trans = yield call(transactionService.create, body);
-    yield put({
-      type: 'transactions/setNewTransaction',
-      payload: { id: trans.id, ...body, createdAt: fbDateTime(), updatedAt: fbDateTime() },
-    });
+    yield put(
+      actions.setNewTransaction({
+        id: trans.id,
+        ...body,
+        createdAt: fbDateTime(),
+        updatedAt: fbDateTime(),
+      }),
+    );
   } catch (error) {
     yield put(setError(error));
   }

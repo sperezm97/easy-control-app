@@ -15,6 +15,7 @@ const store = configureStore({
   middleware: [
     ...getDefaultMiddleware({
       thunk: false,
+      immutableCheck: true,
       serializableCheck: false,
     }),
     networkMiddleware,

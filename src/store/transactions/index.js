@@ -1,22 +1,8 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { combineReducers } from '@reduxjs/toolkit';
+import data from './data';
+import bulk from './bulk';
 
-const initialState = {
-  data: [],
-};
-
-const transactions = createSlice({
-  name: 'transactions',
-  initialState,
-  reducers: {
-    setData: (state, action) => {
-      state.data = action.payload;
-    },
-    setNewTransaction: (state, action) => {
-      state.data.unshift(action.payload);
-    },
-  },
+export default combineReducers({
+  data,
+  bulk,
 });
-
-export const { setData, setNewTransaction } = transactions.actions;
-
-export default transactions.reducer;

@@ -1,9 +1,13 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
-import { View, Text } from '../../../component';
-import { layout, globalStyles, colors } from '../../../styles';
-import { formatPrice } from '../../../utils';
+import { useSelector, useDispatch } from 'react-redux';
+import { View, Text } from '../../../../component';
+import { layout, globalStyles, colors } from '../../../../styles';
+import { formatPrice } from '../../../../utils';
+import Selection from './Selection';
+import { getTransactionsSelection } from '../../../../store/transactions/selectors';
+import { addTransSelection, removeTransSelection } from '../../../../store/transactions/bulk';
 
 const styles = StyleSheet.create({
   container: {
@@ -29,21 +33,41 @@ const styles = StyleSheet.create({
 });
 
 const ListItem = props => {
-  const { category, createdAt, description, price, transactionTypeId } = props;
+  const { category, createdAt, description, price, transactionTypeId, isBulkAction, id } = props;
   const firstCategoryLetter = category.charAt(0);
+  const transSelection = useSelector(getTransactionsSelection);
+  const dispatch = useDispatch();
 
   const getColorByTransactionType = () => {
     const incomeTransId = 'rXhNf8qWxQooVeaZJ1Tb';
     return transactionTypeId == incomeTransId ? colors.success : colors.danger;
   };
 
+  const verifySelection = transSelection.includes(id);
+
+  const addToBulk = () => {
+    dispatch(addTransSelection(id));
+  };
+
+  const removeFromBulk = () => {
+    dispatch(removeTransSelection(id));
+  };
+
   return (
     <View row between style={styles.container} center>
       <View row center>
         <View style={styles.circle}>
-          <Text type="subTitle" color={colors.white}>
-            {firstCategoryLetter}
-          </Text>
+          {isBulkAction ? (
+            <Selection
+              isSelect={verifySelection}
+              addToBulk={addToBulk}
+              removeFromBulk={removeFromBulk}
+            />
+          ) : (
+            <Text type="subTitle" color={colors.white}>
+              {firstCategoryLetter}
+            </Text>
+          )}
         </View>
         <View style={styles.item}>
           <Text type="body" numberOfLines={1} ellipsizeMode="tail" style={styles.text}>
@@ -67,10 +91,12 @@ const ListItem = props => {
 };
 
 ListItem.propTypes = {
+  id: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   createdAt: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   transactionTypeId: PropTypes.string.isRequired,
+  isBulkAction: PropTypes.bool.isRequired,
 };
 export default ListItem;

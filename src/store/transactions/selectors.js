@@ -17,3 +17,5 @@ export const getFormatTransactions = createSelector(
       return acc;
     }, []),
 );
+
+export const getTransactionsSelection = state => state.transactions.bulk;

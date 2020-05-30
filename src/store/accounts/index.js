@@ -1,4 +1,7 @@
+/* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
+import { updateActiveAccount } from '../user';
+import { setNewTransaction } from '../transactions/data';
 
 const initialState = {
   activeAccount: {
@@ -27,10 +30,10 @@ const accounts = createSlice({
     },
   },
   extraReducers: {
-    'user/updateActiveAccount': (state, action) => {
+    [updateActiveAccount.type]: (state, action) => {
       state.activeAccount = state.data.find(ac => ac.id == action.payload.id);
     },
-    'transactions/setNewTransaction': (state, action) => {
+    [setNewTransaction.type]: (state, action) => {
       const isExpenses = action.payload.transactionTypeId === 'ks25ee53mu6Ja4V6VKPl';
 
       if (isExpenses) {
