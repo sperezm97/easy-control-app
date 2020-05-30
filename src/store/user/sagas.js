@@ -4,21 +4,24 @@ import { userServices } from '../../services';
 import { formatObject } from '../../utils';
 import { getUserId } from './selectors';
 import { setError } from '../common';
+import userMapper from '../../services/mappers/users';
+import { updateActiveAccount, setData } from './index';
 
 function* fetchUser(payload) {
   try {
-    const data = formatObject(yield call(userServices.fetchSingle, payload.userId));
-    yield put({ type: 'user/setData', payload: data });
+    const formatData = formatObject(yield call(userServices.fetchSingle, payload.userId));
+    const data = userMapper.fromFirestore(formatData);
+    yield put(setData(data));
   } catch (error) {
     yield put(setError(error));
   }
 }
 
-function* updateActiveAccount(payload) {
+function* newUpdateActiveAccount(payload) {
   const userId = yield select(getUserId);
   try {
     yield call(userServices.update, userId, { active_account_id: payload.id });
-    yield put({ type: 'user/updateActiveAccount', payload });
+    yield put(updateActiveAccount(payload));
   } catch (error) {
     yield put(setError(error));
   }
@@ -53,7 +56,7 @@ export function* watchFetchUser() {
   yield takeLatest('user/fetch', fetchUser);
 }
 export function* watchUpdateActiveAccount() {
-  yield takeLatest('user/putActiveAccount', updateActiveAccount);
+  yield takeLatest('user/putActiveAccount', newUpdateActiveAccount);
 }
 
 export function* watchCreateUser() {

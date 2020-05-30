@@ -1,6 +1,7 @@
 import { all, fork } from 'redux-saga/effects';
 import { networkSaga } from 'react-native-offline';
-import { watchFetchTransactions, watchCreateTransactions } from './transactions/sagas';
+import { watchFetchTransactions, watchCreateTransactions } from './transactions/data/sagas';
+import { watchBulkDelete } from './transactions/bulk/sagas';
 import watchFetchOptions from './options/sagas';
 import { watchFetchUser, watchUpdateActiveAccount, watchCreateUser } from './user/sagas';
 import { watchFetchAccounts, watchCreateAccounts } from './accounts/sagas';
@@ -18,5 +19,6 @@ export default function* sagas() {
     fork(watchFirstUser),
     fork(watchCreateUser),
     fork(networkSaga, { pingInterval: 20000 }),
+    fork(watchBulkDelete),
   ]);
 }

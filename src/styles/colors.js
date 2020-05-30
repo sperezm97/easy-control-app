@@ -2,7 +2,7 @@ export default {
   primaryColor: '#2196F3',
   primaryColorDark: '#1976D2',
   primaryColorLight: '#BBDEFB',
-  secondaryColor: '',
+  secondaryColor: '#00AA7D',
   secondaryColorDark: '',
   secondaryColorLight: '',
   accentColor: '#8BC34A',

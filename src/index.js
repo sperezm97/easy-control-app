@@ -3,6 +3,7 @@ import { AsyncStorage } from 'react-native';
 import { useDispatch } from 'react-redux';
 import AppNavigator from './navigation';
 import ErrorAlert from './hooks/ErrorAlert';
+import { persistor } from './store';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ const App = () => {
   useEffect(() => {
     dispatch({ type: 'options/fetch' });
   }, []);
+  persistor.pause();
 
   return (
     <>

@@ -3,14 +3,19 @@ import { accountService } from '../../services';
 import { formatDataFromFb } from '../../utils';
 import { getActiveAccountId, getUserId } from '../user/selectors';
 import { setError } from '../common';
+import mapperAccounts from '../../services/mappers/accounts';
 
 function* fetchAccounts() {
   yield take('user/setData');
+  const userId = yield select(getUserId);
+
   try {
-    const userId = yield select(getUserId);
-    const data = formatDataFromFb(yield call(accountService.fetchAll, userId));
-    yield put({ type: 'accounts/setData', payload: data });
-    yield call(fetchActiveAccount);
+    const formatData = formatDataFromFb(yield call(accountService.fetchAll, userId));
+    if (formatData.length > 0) {
+      const mapperData = mapperAccounts.fromFirestore(formatData);
+      yield put({ type: 'accounts/setData', payload: mapperData });
+      yield call(fetchActiveAccount);
+    }
   } catch (error) {
     yield put(setError(error));
   }

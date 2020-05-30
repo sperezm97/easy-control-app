@@ -6,35 +6,13 @@ import PropTypes from 'prop-types';
 import { globalStyles, colors, layout } from '../../styles';
 
 const styles = StyleSheet.create({
-  body: {
+  row: {
     ...globalStyles.row,
-    marginTop: layout.spacingXlg,
     marginBottom: layout.spacingXlg,
     paddingVertical: layout.spacingLg,
     paddingHorizontal: layout.spacingLg,
     backgroundColor: colors.white,
     justifyContent: 'space-between',
-  },
-  left: {
-    flex: 1,
-    alignItems: 'flex-start',
-    paddingLeft: layout.spacingXlg,
-    padding: layout.spacingXXl,
-    marginRight: layout.spacingMd,
-    backgroundColor: colors.white,
-    borderTopRightRadius: 10,
-    borderBottomRightRadius: 10,
-  },
-  right: {
-    flex: 1,
-    alignItems: 'flex-end',
-    paddingRight: layout.spacingXlg,
-    paddingVertical: layout.spacingXXl,
-    paddingLeft: layout.spacingXXl,
-    marginLeft: layout.spacingMd,
-    backgroundColor: colors.white,
-    borderTopLeftRadius: 10,
-    borderBottomLeftRadius: 10,
   },
   container: {
     flex: 1,
@@ -43,6 +21,14 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 10,
     paddingHorizontal: layout.spacingXlg,
     paddingTop: layout.spacingXlg,
+  },
+  body: {
+    flex: 1,
+    ...globalStyles.center,
+    borderRadius: 10,
+    padding: layout.spacingXXl,
+    backgroundColor: colors.white,
+    marginHorizontal: layout.spacingMd,
   },
 });
 const Card = props => {
@@ -53,6 +39,7 @@ const Card = props => {
 
 Card.propTypes = {
   type: PropTypes.string.isRequired,
+  children: PropTypes.element.isRequired,
 };
 
 export default Card;

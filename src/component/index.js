@@ -11,21 +11,19 @@ import HandHolding from '../../assets/images/hand-holding-usd-solid.svg';
 import FloatingButton from './Layout/FloatingButton';
 
 import ActiveAccount from './ActiveAccount';
-import ExpensesCard from './ExpensesCard';
-import IncomeCard from './IncomeCard';
 import UnderConstruction from './UnderConstruction';
 
 import List from './List';
 import Input from './Input';
 import Picker from './Picker';
+import ActionBar from './ActionBar';
 
 export {
+  ActionBar,
   Icon,
   Text,
   Card,
   ActiveAccount,
-  ExpensesCard,
-  IncomeCard,
   View,
   List,
   FloatingButton,
